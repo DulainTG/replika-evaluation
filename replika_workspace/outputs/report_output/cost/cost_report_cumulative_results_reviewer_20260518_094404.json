@@ -1,0 +1,31 @@
+[
+  {
+    "Agent": "background writer",
+    "Cost ($)": 0.0186285,
+    "Prompt Tokens": 27267,
+    "Completion Tokens": 1665,
+    "Total Tokens": 28932,
+    "Cached Prompt Tokens": 0,
+    "Model": "gemini-3-flash-preview",
+    "Provider": "google"
+  },
+  {
+    "Agent": "results reviewer",
+    "Cost ($)": 0.0,
+    "Prompt Tokens": 24419,
+    "Completion Tokens": 2629,
+    "Total Tokens": 27048,
+    "Cached Prompt Tokens": 0,
+    "Model": "gemini-3-flash-preview",
+    "Provider": "openai"
+  },
+  {
+    "Agent": "Total",
+    "Cost ($)": 0.0186285,
+    "Prompt Tokens": 51686,
+    "Completion Tokens": 4294,
+    "Total Tokens": 55980,
+    "Cached Prompt Tokens": 0,
+    "Model": ""
+  }
+]

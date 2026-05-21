@@ -1,0 +1,69 @@
+You are evaluating a candidate codebase against a PaperBench-style reproduction rubric.
+
+Your task is to inspect the repository and determine how well it satisfies the attached rubric for the paper:
+
+"Transverse-Dominant Anisotropic Dispersion and Transient Trapping in 3D Solenoidal Turbulence"
+
+Inputs:
+1. The repository/codebase currently open in the workspace.
+2. The PaperBench-style rubric JSON file, likely named:
+   solenoidal_turbulence_paperbench_style_rubric.json
+3. Any available outputs, logs, figures, tables, or result files in the repository.
+
+Evaluation approach:
+- Read the rubric JSON carefully.
+- Traverse the rubric tree.
+- For each leaf criterion, inspect the relevant code, scripts, configs, logs, and outputs.
+- Assign a score of 1 if the criterion is clearly satisfied.
+- Assign a score of 0 if the criterion is missing, only described but not implemented, incorrectly implemented, or unsupported by evidence.
+- For higher-level nodes, compute a weighted score from their children using the rubric weights.
+- Be strict: descriptions in README files are not enough unless supported by actual code or generated outputs.
+- Do not give credit for code that is present but not connected to the reproduction pipeline unless it can reasonably be executed or used.
+- If the code uses approximations or simplified substitutes, explain whether they preserve the requirement in the rubric.
+- If a requirement cannot be verified from the repository, mark it as failed unless there is strong evidence.
+
+Output format:
+Produce a structured Markdown report with the following sections.
+
+# Overall Verdict
+Give:
+- overall weighted score between 0 and 1;
+- brief summary of what is reproduced well;
+- brief summary of the main missing or incorrect pieces.
+
+# Rubric Score Table
+Create a table with columns:
+- Rubric path / criterion
+- Category
+- Weight
+- Score
+- Evidence
+- Notes
+
+For evidence, cite exact file paths and, where possible, function/class names or line numbers.
+
+# Major Passes
+List the strongest parts of the reproduction.
+
+# Major Failures or Gaps
+List the most important missing, incorrect, or weakly supported requirements.
+
+# Execution Assessment
+State whether the repo appears runnable end-to-end. Include:
+- command/script used or expected;
+- whether outputs/logs exist;
+- whether outputs are sufficient for Result Analysis criteria.
+
+# Scientific Correctness Concerns
+Only include concerns that arise directly from comparing the codebase against the rubric. Do not introduce extra requirements beyond the rubric.
+
+# Recommendations
+Give a concise prioritized list of fixes needed to improve the reproduction.
+
+Rules:
+- Grade against the rubric, not against your own additional checklist.
+- Do not invent outputs that are not present.
+- Do not assume the code was run unless logs or generated artifacts show it.
+- If you cannot verify a criterion, mark it as 0 and explain what evidence is missing.
+- Prefer concrete evidence over narrative claims.
+- Keep the assessment grounded in the rubric.

@@ -1,0 +1,1401 @@
+{
+    "id": "6fd29626-69a7-4781-b0a5-d3d880643fb4",
+    "requirements": "The paper \"Transverse-Dominant Anisotropic Dispersion and Transient Trapping in 3D Solenoidal Turbulence\" has been reproduced.",
+    "weight": 1,
+    "sub_tasks": [
+        {
+            "id": "e18bb869-972a-4f99-924b-939dbaf4fd08",
+            "requirements": "The required turbulence dataset, derived fields, and large-scale filtered fields are available",
+            "weight": 2,
+            "sub_tasks": [
+                {
+                    "id": "a97e7b77-da54-4a6f-876a-6246a0d3695c",
+                    "requirements": "The public DNS velocity-field dataset for subsonic, isothermal turbulence in a periodic cubic domain has been acquired or otherwise made available",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "9397ff4f-82d9-4cfe-b26e-bd7bb0c9e766",
+                            "requirements": "The dataset represents a periodic cubic domain with side length L = 1",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Dataset and Model Acquisition"
+                        },
+                        {
+                            "id": "1c3e3019-7815-4ccb-bcda-972ea18c5dd9",
+                            "requirements": "The dataset represents purely solenoidal/divergence-free forcing at the largest scales",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Dataset and Model Acquisition"
+                        },
+                        {
+                            "id": "7686eb0c-047b-4d1b-b5d9-0c08c5427523",
+                            "requirements": "The forcing modes retained for the large-scale analysis correspond to wavenumbers n = 1-3",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Dataset and Model Acquisition"
+                        },
+                        {
+                            "id": "6868a0e1-7c57-46d2-bddb-c6c77c552741",
+                            "requirements": "A sequence of 200 evenly spaced velocity-field snapshots can be loaded for analysis",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Dataset and Model Acquisition"
+                        },
+                        {
+                            "id": "1ddeaf60-847c-4bc7-9b08-8f4ba02db72e",
+                            "requirements": "The code records or infers the physical time associated with each velocity-field snapshot",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Data Processing & Preparation"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "df4f4521-336a-49c0-b05a-80622558a36f",
+                    "requirements": "Auxiliary Eulerian fields are computed from the instantaneous velocity field",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "4f823bae-f223-4f63-ad28-3cf07be954f3",
+                            "requirements": "The velocity gradient tensor \u2207v is computed on the grid with a documented finite-difference or spectral differentiation convention",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "3402c187-0733-4d8e-a920-b38c6ac548ca",
+                            "requirements": "The vorticity field is computed as \u03c9 = \u2207 \u00d7 v",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "8b70236a-0479-4112-89e0-ca1c16524eb4",
+                            "requirements": "The antisymmetric rotation tensor is computed as \u03a9 = 1/2(\u2207v - (\u2207v)^T)",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "45a91e6e-cf1e-4b24-9176-c496a9ff4e43",
+                            "requirements": "The symmetric strain-rate tensor is computed as S = 1/2(\u2207v + (\u2207v)^T)",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "be383182-46f0-4347-bb3d-39ef108ef1ac",
+                            "requirements": "The Q-criterion field is computed as Q = 1/2(||\u03a9||^2 - ||S||^2)",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "3a28f452-ecb5-4d2a-8e5b-bdab6964695e",
+                            "requirements": "Grid cells with Q > 0 are identified as vortex-core regions where rotation dominates strain",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "20328105-50ab-4a0c-aa96-f7209e41d8b5",
+                    "requirements": "The large-scale velocity field used for anisotropy analysis is computed",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "de670788-a900-4d52-92b7-8806b732c561",
+                            "requirements": "A Fourier-space representation of each velocity-field snapshot is computed",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "a1ad84ad-af70-406f-acfb-2bdfabac67b4",
+                            "requirements": "A sharp spectral filter retaining only the driving modes n = 1-3 is applied",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "2169b4c4-7e49-4d06-9901-269766abaff6",
+                            "requirements": "The filtered field V_LS(x,t) is transformed back to physical space for interpolation along tracer paths",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "74a8cc93-31f6-442f-9b45-b638aac458ba",
+                            "requirements": "The filtering implementation preserves the vector components of the velocity field and does not replace V_LS with the full unfiltered velocity field",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                }
+            ],
+            "task_category": null,
+            "finegrained_task_category": null
+        },
+        {
+            "id": "1284ff7d-7bab-4277-85ac-74474fa8930d",
+            "requirements": "Passive Lagrangian tracer integration is implemented as described in Section 2.2",
+            "weight": 3,
+            "sub_tasks": [
+                {
+                    "id": "60fcaa23-5412-48d7-88e4-1f3af5ad655c",
+                    "requirements": "The tracer ensemble is initialized correctly",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "e242ee66-3b7c-4ff7-b053-be7da00bc3c5",
+                            "requirements": "8,000 passive Lagrangian tracers are initialized",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Experimental Setup"
+                        },
+                        {
+                            "id": "440e6ac0-bff8-477c-9744-a3bb6a72fec5",
+                            "requirements": "Tracer initial positions are randomly seeded within the periodic domain",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Experimental Setup"
+                        },
+                        {
+                            "id": "55a97848-04fc-4d14-a1d6-1595932b7d96",
+                            "requirements": "The random seed or initialization procedure is recorded so that the experiment can be rerun",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Experimental Setup"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "ac2a257a-f442-4c4a-82d2-fe743aac5be3",
+                    "requirements": "Tracer trajectories are integrated according to dx/dt = v(x(t), t)",
+                    "weight": 3,
+                    "sub_tasks": [
+                        {
+                            "id": "efb93882-a5ed-4a07-89ec-318eaf453833",
+                            "requirements": "A fourth-order Runge-Kutta (RK4) time integration scheme is implemented for tracer advection",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "6ff8ca52-441d-4c66-ae6e-3246e9b49a01",
+                            "requirements": "The velocity v(x,t) at arbitrary tracer positions is obtained by trilinear interpolation from surrounding grid points",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "2becb5d4-b691-4746-9102-8efef74f46b5",
+                            "requirements": "Time interpolation or snapshot-to-snapshot stepping is handled consistently with the spacing of the velocity snapshots",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "1c0ef02f-cf20-4533-928f-0d97aedf78a0",
+                            "requirements": "10 integration sub-steps are taken between consecutive velocity-field snapshots",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Experimental Setup"
+                        },
+                        {
+                            "id": "2d58acc6-8af3-4ca6-9299-da4be0202d2b",
+                            "requirements": "Periodic boundary conditions are enforced at every integration sub-step using a modulo operation on tracer coordinates",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "fe27653f-9110-4a3a-9418-0c298154001a",
+                            "requirements": "The code separately tracks wrapped positions for interpolation and unwrapped displacements for MSD calculations, or otherwise documents and validates the displacement convention used",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "65b56529-6a3a-4f2a-8d41-dc4c67f6e69d",
+                    "requirements": "The local large-scale velocity and Q-criterion are sampled along tracer paths",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "471b0ba4-e2aa-40bc-a15c-acc78eee2eff",
+                            "requirements": "The same interpolation and integration-time convention used for v(x,t) is used to obtain V_LS(x(t),t) along each tracer trajectory",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "2d3eb26b-e492-4bba-a0e7-bf164de41300",
+                            "requirements": "The Q-criterion value Q(x(t),t) is interpolated along each tracer trajectory",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "dd7a2201-1a5e-45c0-ba16-49afaad24d63",
+                            "requirements": "The trajectory output contains positions, displacements, local V_LS values, Q values, and boundary-crossing information required by downstream analyses",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Data Processing & Preparation"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                }
+            ],
+            "task_category": null,
+            "finegrained_task_category": null
+        },
+        {
+            "id": "c5ad20b4-b23d-4dd9-9828-04f046e877ea",
+            "requirements": "The MSD, scaling-exponent, diffusion, and conditional-trapping analyses are implemented",
+            "weight": 3,
+            "sub_tasks": [
+                {
+                    "id": "cc2d0c35-51b1-4306-bdea-604bc4ba9269",
+                    "requirements": "The ensemble Mean-Square Displacement analysis is implemented",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "d55a6f85-aaf3-409b-b1a9-f61968274b1f",
+                            "requirements": "For each lag time t, tracer displacements are computed as \u0394x(t) = x(t0 + t) - x(t0)",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "804db0d7-aec4-4b17-8611-5e0eab772abb",
+                            "requirements": "MSD(t) is computed as the ensemble average <|\u0394x(t)|^2> over tracers and valid time origins",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "2bb66b39-a143-4a1c-bf24-4616f6c578f8",
+                            "requirements": "The implementation documents whether single-origin or multi-origin lag averaging is used",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Experimental Setup"
+                        },
+                        {
+                            "id": "a1d95e8a-5915-4e6a-8d2d-96abc7134d7c",
+                            "requirements": "MSD results are stored as a time series over lag time",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Data Processing & Preparation"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "abaac708-14a6-40fa-b60b-41ee4bad2e06",
+                    "requirements": "The local logarithmic MSD scaling exponent \u03b1(t) is implemented",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "adc3e563-0b46-4141-a28c-a0e2d7d6ed0c",
+                            "requirements": "\u03b1(t) is computed as d(log MSD)/d(log t) using a numerically stable derivative or local regression method",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "70ea67b0-1705-41d0-9e20-2c136af14d87",
+                            "requirements": "The implementation handles early-time and late-time derivative boundary effects explicitly",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "5bb8de0e-82ae-4026-97bc-e69f938b7ed9",
+                            "requirements": "The ballistic, superdiffusive, diffusive, and saturation regimes are identified from \u03b1(t)",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "0c2534c3-aff2-4a26-83e9-22a4f52610b5",
+                    "requirements": "The classical diffusion coefficient is estimated from the velocity autocorrelation function",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "5c32a164-20d1-4693-bde8-7d35ed4b1771",
+                            "requirements": "The velocity autocorrelation function VACF(t) = <v(t0) \u00b7 v(t0 + t)> is computed from tracer or field-sampled velocities",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "18eaa47d-15a5-417c-aa1f-450258624df5",
+                            "requirements": "The diffusion coefficient D is estimated by integrating the VACF before the onset of finite-domain saturation",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "0364844f-5350-42c7-9143-6d84a32293a0",
+                            "requirements": "The estimated diffusion coefficient is reported and compared with the target D \u2248 0.010",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "62791437-39be-4c81-bd16-8c175a33aee2",
+                    "requirements": "Finite-domain saturation and boundary crossings are measured",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "aa9d67be-e91e-4758-9cb9-b97df238a44a",
+                            "requirements": "The theoretical saturation scale L^2/6 is computed for L = 1 and reported as approximately 0.167",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "1e7ebdeb-b699-4689-947d-86ad319b9294",
+                            "requirements": "The fraction of tracers that cross at least one periodic boundary by the end of the simulation is computed",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "1ea994b7-1543-4d60-95e0-26df135abca2",
+                            "requirements": "The boundary-crossing fraction is compared with the target value of approximately 82.9%",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "5213e82c-2ead-4f6b-b377-5c55ff53e1de",
+                            "requirements": "Late-time \u03b1(t) < 1 is interpreted as geometric saturation rather than physical subdiffusion",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "ead4f7d6-86b2-4332-b315-aa2139a9bde7",
+                    "requirements": "The conditional MSD analysis for trapped and free cohorts is implemented",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "02f2bc8a-eb38-4376-ab90-3681ebbd4bcf",
+                            "requirements": "For each tracer, a vortex-residence fraction or equivalent Q>0 occupancy measure is computed",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "9398b105-a909-48ae-8956-46bee58d5c53",
+                            "requirements": "The Trapped cohort is defined using the top 20% of Q-criterion residence",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Experimental Setup"
+                        },
+                        {
+                            "id": "f60c6a82-820d-4002-adca-d1aa30ecd66b",
+                            "requirements": "A Free cohort of least-trapped tracers is defined consistently and documented",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Experimental Setup"
+                        },
+                        {
+                            "id": "d0e2841c-74ce-4529-9334-f7dfb4740874",
+                            "requirements": "Separate MSD curves are computed for the Trapped and Free cohorts",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "75e48588-a8f7-4b58-ae57-adb9b5076f5c",
+                            "requirements": "The results show that the Trapped cohort has systematically lower MSD than the Free cohort over the reported lag range",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                }
+            ],
+            "task_category": null,
+            "finegrained_task_category": null
+        },
+        {
+            "id": "de70f689-949a-4757-93ac-3690cd7055e0",
+            "requirements": "The transverse-dominant anisotropic dispersion analysis is implemented",
+            "weight": 3,
+            "sub_tasks": [
+                {
+                    "id": "eeaa4274-5e73-493c-8152-a48e9094eaaa",
+                    "requirements": "Parallel and perpendicular displacement components are computed relative to the instantaneous local large-scale velocity",
+                    "weight": 3,
+                    "sub_tasks": [
+                        {
+                            "id": "89f7ba26-a78a-44c0-8409-9d6f305ade93",
+                            "requirements": "For each tracer and lag, the unit vector V_hat_LS is computed from V_LS(x(t0 + t), t0 + t)",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "e2cc779e-47e5-4da7-8039-0eaff786cdc8",
+                            "requirements": "Cases where |V_LS| is zero or numerically tiny are handled explicitly and documented",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "52a56534-b4ce-4418-807b-1cd54b4846ee",
+                            "requirements": "The parallel MSD is computed as MSD_parallel(t) = <(\u0394x(t) \u00b7 V_hat_LS)^2>",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "a55b077e-1c77-44f9-a50d-e4b6064d838e",
+                            "requirements": "The perpendicular displacement is computed as \u0394x(t) - (\u0394x(t) \u00b7 V_hat_LS)V_hat_LS",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "3b77c6ac-3917-4c57-a285-8db5c78726c2",
+                            "requirements": "The perpendicular MSD is computed as MSD_perpendicular(t) = <|\u0394x(t) - (\u0394x(t) \u00b7 V_hat_LS)V_hat_LS|^2>",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "42c25673-0626-45ff-8e52-59894ef95e18",
+                            "requirements": "The implementation clearly preserves the paper's convention that the perpendicular term is the squared magnitude of the full two-dimensional transverse component",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "89ddb66c-7876-4906-8b89-672e4c368c16",
+                    "requirements": "The dynamic anisotropy ratio \u03bb(t) is computed and analyzed",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "118aeef5-81d0-4f43-bffa-545701b192a0",
+                            "requirements": "\u03bb(t) is computed as MSD_parallel(t) / MSD_perpendicular(t)",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "ad6b43d2-ab52-4f70-9b93-bf7d21642e76",
+                            "requirements": "The early-time ballistic phase where \u03bb > 1 is identified",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "3721c966-de9d-41d3-847c-0f165ed6a7f3",
+                            "requirements": "The peak anisotropy ratio is reported and compared with the target \u03bb \u2248 2.96 for t < 0.5",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "319b1e44-8d54-465e-915b-8f582315b0fd",
+                            "requirements": "The post-ballistic reversal where \u03bb drops below unity after approximately t = 0.5 is identified",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "f81ece84-4090-4d3f-ab74-cb38b32b316a",
+                            "requirements": "The post-ballistic mean anisotropy ratio is computed for t > 0.5",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "b06e4d62-197c-4df9-a36d-2733f5ce987b",
+                            "requirements": "The post-ballistic mean is compared with the target \u03bb \u2248 0.52 \u00b1 0.045",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "5643d926-a264-496f-99c5-fde32d2c838c",
+                    "requirements": "The interpretation of anisotropy is supported by the implemented outputs",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "5e826d7f-d688-474c-bd5b-2f4b1463daf9",
+                            "requirements": "The code reports that \u03bb < 1 corresponds to perpendicular dispersion exceeding parallel dispersion under the paper's definition",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "b575a3b9-2525-4479-80fc-a1be6297bd76",
+                            "requirements": "The analysis connects the transverse-dominant result to the solenoidal large-scale velocity field rather than to an unrelated coordinate axis",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                }
+            ],
+            "task_category": null,
+            "finegrained_task_category": null
+        },
+        {
+            "id": "09656226-44bb-492b-98f6-efb4ef253fd5",
+            "requirements": "The vortex trapping and Q-autocorrelation analysis is implemented",
+            "weight": 3,
+            "sub_tasks": [
+                {
+                    "id": "08f08487-3406-4a04-8f07-065076d7df1b",
+                    "requirements": "Vortex residence signals are computed along tracer paths",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "7b008bf5-72d9-4521-8217-db4a0a9f188f",
+                            "requirements": "A tracer is classified as inside a vortex core at time t if Q(x(t),t) > 0",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "f2bbe9d4-2251-4cc5-8d4b-b9257a3e80ee",
+                            "requirements": "For each tracer, the binary Q>0 residence signal is recorded over time",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Data Processing & Preparation"
+                        },
+                        {
+                            "id": "5bddd962-13e3-4046-a82a-0fe5450c0e3d",
+                            "requirements": "For each tracer, the raw Q(x(t),t) signal is recorded over time for autocorrelation analysis",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Data Processing & Preparation"
+                        },
+                        {
+                            "id": "47f54205-3894-4da3-9a64-1a2ab9deee00",
+                            "requirements": "Vortex residence fractions are computed for each tracer from the Q>0 signal",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "b09976a7-29a3-44d9-b42f-658697e8db5d",
+                    "requirements": "The Lagrangian autocorrelation function of the Q-criterion signal is implemented",
+                    "weight": 3,
+                    "sub_tasks": [
+                        {
+                            "id": "3b3f0633-891e-4903-9d4f-447898dfe689",
+                            "requirements": "The autocorrelation is computed along tracer trajectories rather than from a fixed Eulerian Q field alone",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "a2d180a7-255d-4a8c-beff-14f25361b5cf",
+                            "requirements": "The autocorrelation function is normalized by its initial value so that the 1/e crossing is meaningful",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "34cddbd6-906d-4a2a-aa1f-8e6ae12899f0",
+                            "requirements": "The characteristic residence time \u03c4_Q is defined as the first time where the normalized autocorrelation decays to 1/e",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "9092e8d1-d0e4-4879-af20-68c2507a65a9",
+                            "requirements": "Interpolation or a documented discrete crossing rule is used to estimate the 1/e crossing time",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "75f254af-1a03-4628-a9dd-57a82e03f6b2",
+                            "requirements": "The \u03c4_Q result is reported and compared with the target \u03c4_Q \u2248 0.200",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "bb7b435b-2de6-4791-ac9a-b44ee7a38fd0",
+                    "requirements": "The large-eddy turnover-time comparison is implemented",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "db8a1a19-b87d-483e-b2ab-ef13a8f8485c",
+                            "requirements": "The rms velocity v_rms is computed or set consistently with the paper's value v_rms \u2248 0.38",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "166d4c9f-5775-4676-8161-c53bd385d086",
+                            "requirements": "The large-eddy turnover time is computed as T_e = L / v_rms",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "e32716a3-1db0-4614-8c25-f93c8a8b357c",
+                            "requirements": "The reported turnover time is compared with the target T_e \u2248 1 / 0.38 \u2248 2.6",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "54aa4436-6af4-44ee-8f87-754deb108b5e",
+                            "requirements": "The normalized residence time \u03c4_Q / T_e is computed",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "42156ccf-081a-4dcf-8f84-c91bbde24582",
+                            "requirements": "The normalized residence time is compared with the target \u03c4_Q / T_e \u2248 0.077, or about 7-8% of a large-eddy turnover time",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "08ace1b7-5a06-4d01-9d68-782cc2b9ec6a",
+                    "requirements": "The conclusion that vortex trapping is transient is tested",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "57ced375-9cd0-4505-8cad-4c1cf1a2693f",
+                            "requirements": "The result analysis states whether Q-autocorrelation decays rapidly enough to rule out long-lived trapping under the paper's criterion",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "482f48f9-4dae-4409-8788-a0cca88c3246",
+                            "requirements": "The analysis distinguishes transient vortex trapping from sustained anomalous transport or long-term memory",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                }
+            ],
+            "task_category": null,
+            "finegrained_task_category": null
+        },
+        {
+            "id": "07762a96-9497-452a-b104-e99055b8248d",
+            "requirements": "The displacement-PDF, Gaussianity, kurtosis, and L\u00e9vy-tail analyses are implemented",
+            "weight": 2,
+            "sub_tasks": [
+                {
+                    "id": "a83ab794-2f48-4dd7-b058-42082c9babea",
+                    "requirements": "Single-component tracer displacement PDFs are computed at the reported lag times",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "9e24be91-33c2-4d69-9578-038ea4aa656f",
+                            "requirements": "Single-component tracer displacements are extracted from trajectory data",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "11f2dd86-8bce-4776-ac1a-8d73fb1a90db",
+                            "requirements": "Displacements are normalized consistently before PDF comparison",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "f0e7b20d-b13f-433c-9345-3c39ab23a970",
+                            "requirements": "PDFs are computed for t = 0.5, 1.0, 2.0, 5.0, and 9.0 or the closest available lag times",
+                            "weight": 2,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Experimental Setup"
+                        },
+                        {
+                            "id": "3250b8ae-2402-4df1-9abd-d1595a42b7e4",
+                            "requirements": "Each empirical PDF is compared against a Gaussian distribution with the same mean and variance",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "cad6e920-75c7-4d12-b387-45578808f913",
+                    "requirements": "Gaussianity is assessed using a two-sided Kolmogorov-Smirnov test",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "75397f56-b066-4b0b-9557-a8dd3d689f6c",
+                            "requirements": "A two-sided KS test is implemented for empirical displacement samples against a matched Gaussian distribution",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "018102a1-0c2a-4b63-b8b9-474523cfee75",
+                            "requirements": "The intermediate-time t \u2248 2.0 distribution is tested for consistency with Gaussianity",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "4f22c910-1c0d-4217-a566-29184687ee53",
+                            "requirements": "The t \u2248 2.0 KS p-value is reported and compared with the target p \u2248 0.53",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "760f3201-2d7f-4d62-ba83-b575d2732a82",
+                    "requirements": "Excess kurtosis is computed to assess late-time platykurtic behavior",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "a0449203-3cbd-4a69-b27b-aa2a690f93ff",
+                            "requirements": "Excess kurtosis is computed for each reported lag-time displacement distribution",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "5beb32eb-af63-4dcc-a15f-9b523d7bb914",
+                            "requirements": "Late-time distributions at t \u2248 5.0 and t \u2248 9.0 are identified as light-tailed/platykurtic rather than heavy-tailed",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "92de457a-a35d-4361-8e05-40ffc0732789",
+                            "requirements": "The late-time excess kurtosis is compared with the target of approaching approximately -1.2",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "367b16ad-28a8-4dc2-8665-1f288513ec67",
+                            "requirements": "The analysis links negative excess kurtosis at late time to geometric saturation in the finite periodic domain",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "ed02edcb-6462-466c-9cfc-21efcc337cb2",
+                    "requirements": "The Hill estimator is implemented to test for L\u00e9vy-flight heavy tails",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "238f1343-05a7-41ec-985c-18c3c8c38f2c",
+                            "requirements": "A Hill estimator or equivalent tail-index estimator is applied to the displacement distribution tails",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "85ae0deb-3ba2-49ba-92da-feffdd3166fa",
+                            "requirements": "The estimated tail exponent \u03b1_L is reported",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "47cd0048-b8bd-4e19-afce-2719776a0007",
+                            "requirements": "The tail exponent is compared with the target \u03b1_L \u2248 -7.1",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "08d306ca-c20d-473e-ae6f-5d7dc6ea4e8a",
+                            "requirements": "The result analysis states that the estimated tail behavior is inconsistent with L\u00e9vy-flight heavy tails in the range 0 < \u03b1_L \u2264 2",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                }
+            ],
+            "task_category": null,
+            "finegrained_task_category": null
+        },
+        {
+            "id": "0e2c5a1a-70f9-4952-b6f1-f92a9b390bbf",
+            "requirements": "The chaotic-dynamics and vortex-ejection analyses using FTLE are implemented",
+            "weight": 1,
+            "sub_tasks": [
+                {
+                    "id": "d1088eee-7ebb-49ce-9e8d-5e6ab1940722",
+                    "requirements": "Finite-Time Lyapunov Exponent calculations are implemented for tracer trajectories",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "f2ccec30-67cc-4b88-b0d7-d07d37dcee31",
+                            "requirements": "A long-time FTLE or documented finite-time trajectory-separation metric is computed over the full trajectory",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "bd5b0809-b246-484f-bc2e-c85d6359884e",
+                            "requirements": "FTLE values are computed for all tracers or for a documented representative ensemble",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "d5e2eb83-c27a-4f7d-ae7f-613825e99ec2",
+                            "requirements": "The implementation accounts for periodic-domain wrapping when estimating trajectory separation",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "18b25eb0-7143-4d7f-8cbe-9d877800a74c",
+                    "requirements": "FTLE distributions for trapped and free cohorts are compared",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "836fa38f-7f53-44e6-a786-7a9c6544fad6",
+                            "requirements": "Trapped and Free cohorts are defined consistently with the residence-time analysis",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Experimental Setup"
+                        },
+                        {
+                            "id": "f5873654-33a5-4dd3-8b73-68428cb62bae",
+                            "requirements": "The FTLE distribution is computed for each cohort",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "30d6e0c2-ce30-41a8-968e-1648b730016b",
+                            "requirements": "The mean and standard deviation of FTLE are reported for each cohort",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "01ad152e-4cc4-4517-96dc-f2122fc727c9",
+                            "requirements": "The reported cohort means are compared with the targets approximately -0.008 \u00b1 0.013 for Trapped and -0.007 \u00b1 0.013 for Free",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "2e7b8f2c-530d-4c7f-a45c-2c80cb94c5d0",
+                            "requirements": "The result analysis states whether the two FTLE distributions are nearly identical",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "ed05c640-fb28-4519-98d6-af4ca418c817",
+                    "requirements": "The relationship between FTLE and vortex residence is analyzed",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "263d9176-28cb-4e30-a32c-b6ac06e1c044",
+                            "requirements": "The Pearson correlation between long-time FTLE and vortex-residence fraction is computed",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "4b11d876-667a-4714-9945-c177cc0e096b",
+                            "requirements": "The correlation is compared with the target Pearson r \u2248 0.002",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "2f66e3ed-d3c8-4721-9b71-cf0d436d6ee3",
+                            "requirements": "FTLE at vortex-exit events is computed or approximated with a documented method",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Development",
+                            "finegrained_task_category": "Method Implementation"
+                        },
+                        {
+                            "id": "459a107b-f762-4527-96a7-7a5b252aa3a8",
+                            "requirements": "The mean FTLE at vortex exit is reported and compared with the target \u03bc \u2248 -0.010",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "acaebcf7-9235-4911-8176-812bf4995583",
+                            "requirements": "The analysis states that long-time FTLE is a weak indicator of vortex trapping or ejection dynamics in this setup",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                }
+            ],
+            "task_category": null,
+            "finegrained_task_category": null
+        },
+        {
+            "id": "71338375-6a84-4237-ae63-b510cb5bcf6d",
+            "requirements": "The paper's figures, numerical summaries, and scientific conclusions are reproduced",
+            "weight": 3,
+            "sub_tasks": [
+                {
+                    "id": "e04010f3-093d-4d12-88de-59e685b43222",
+                    "requirements": "Figure 1 is reproduced",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "28437a7b-1bcc-4fb5-a558-66492c92a182",
+                            "requirements": "A two-dimensional slice of the Q-criterion field at z = 0 from the final simulation snapshot is plotted",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "8e4de55d-649d-46fc-a08b-e51cb2bd6aaa",
+                            "requirements": "Positive-Q vortex-core regions and negative-Q strain-dominated regions are visually distinguishable",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "9e13eaa0-bbe6-48e9-8f61-ad57dd8100e4",
+                    "requirements": "Figure 2 is reproduced",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "a54be5cf-af60-4e55-bb5c-e50c44e970a5",
+                            "requirements": "The ensemble-averaged MSD curve is plotted against lag time",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "db1683d4-c2d3-4634-910f-24d779f06c61",
+                            "requirements": "The Trapped and Free cohort MSD curves are plotted on the same panel or otherwise directly compared",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "1405ec9a-cbab-4621-9ec7-7512b4c63544",
+                            "requirements": "The local scaling exponent \u03b1(t) is plotted",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "a2f97040-0bce-4d52-bbf1-56e706a1a8da",
+                            "requirements": "The reproduced figure identifies the ballistic, superdiffusive, diffusive, and saturation regimes",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "437b07eb-47ea-4a5e-89f2-125a152777be",
+                    "requirements": "Figure 3 is reproduced",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "1fca7d39-1b78-41b6-b067-32c3aa737fa7",
+                            "requirements": "The dynamic anisotropy ratio \u03bb(t) = MSD_parallel / MSD_perpendicular is plotted",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "4cdd9153-f55b-4d39-a8c0-ca4806f41d79",
+                            "requirements": "The plot shows \u03bb > 1 during the early ballistic phase and \u03bb < 1 after approximately t = 0.5",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "b560bf2a-1b04-43d8-90ee-74eaa5787eb6",
+                            "requirements": "The post-ballistic mean \u03bb \u2248 0.52 is reported or indicated",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "2f17c72f-9e73-4365-bc35-2b3e2bcb8de3",
+                    "requirements": "Figure 4 is reproduced",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "8771bc55-3e90-4ff1-a4b0-5dcfca5bf80e",
+                            "requirements": "The normalized Lagrangian autocorrelation of the Q-criterion along tracer trajectories is plotted",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "be0393be-8963-4bb8-ab78-c208360bd2b2",
+                            "requirements": "The 1/e threshold and \u03c4_Q crossing are marked or reported",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "2f648d6a-ca3f-4a34-9596-a2801c132bcf",
+                            "requirements": "The reproduced figure supports \u03c4_Q \u2248 0.200 and \u03c4_Q/T_e \u2248 0.077",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "69f3ec81-5a44-49b9-a2a2-53b0be067c13",
+                    "requirements": "Figure 5 is reproduced",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "92c5e239-7bd7-430d-bba8-ec5a17d683c6",
+                            "requirements": "Normalized displacement PDFs are plotted at multiple lag times",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "157c9f72-d687-4fba-a9cc-9e3a758d482e",
+                            "requirements": "A matched Gaussian reference curve is plotted for comparison",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "323147e6-f288-4088-8122-65312f4b16b7",
+                            "requirements": "The figure shows mild early non-Gaussianity, near-Gaussian intermediate behavior, and late-time platykurtic behavior",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "2d67924e-35df-4535-8371-1ec2661cde5f",
+                    "requirements": "Figures 6 and 7 are reproduced",
+                    "weight": 1,
+                    "sub_tasks": [
+                        {
+                            "id": "53aa951d-32c9-45f9-b7ec-4fc0d7fa18e8",
+                            "requirements": "FTLE distributions for Trapped and Free cohorts are plotted",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "8c7ff9f7-d7da-4b8e-a884-8d07d2c2ad63",
+                            "requirements": "A scatter or equivalent plot shows long-time FTLE against vortex-residence fraction",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "90b99910-2aed-41d4-9f40-f15b6997c318",
+                            "requirements": "The distribution of FTLE at vortex-exit events is plotted or summarized",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Code Execution",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "1a7d8e6e-de9c-46a3-8ad8-ebc42de4728a",
+                            "requirements": "The reproduced outputs support the conclusion that long-time FTLE weakly distinguishes trapping dynamics",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                },
+                {
+                    "id": "e91dcdfa-02b7-4075-b074-4763680d8e62",
+                    "requirements": "The final report contains the paper's core scientific conclusions",
+                    "weight": 2,
+                    "sub_tasks": [
+                        {
+                            "id": "912b457a-4c03-4ad2-a998-9e14577c0111",
+                            "requirements": "The report states whether MSD evolves from ballistic to superdiffusive crossover to diffusive behavior before finite-domain saturation",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "2127b3ab-f775-4626-b65e-57a211314fa4",
+                            "requirements": "The report states whether transverse-dominant anisotropy is reproduced under the paper's \u03bb convention",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "f73e790f-ec96-472d-b6e1-4f73250ab64d",
+                            "requirements": "The report states whether vortex residence times are short relative to the large-eddy turnover time",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "206b0906-ebda-4850-950d-906e9e266b26",
+                            "requirements": "The report states whether displacement distributions fail to develop L\u00e9vy-flight heavy tails",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "a0507dcb-c6ac-4427-b184-473a41b9cc28",
+                            "requirements": "The report states whether late-time subdiffusive-looking behavior and light tails are attributed to finite periodic-domain saturation",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        },
+                        {
+                            "id": "4a873783-b71b-4793-82c5-53aa5d8937f5",
+                            "requirements": "The report documents any deviations from the paper's reported numerical values and distinguishes implementation uncertainty from genuine non-reproduction",
+                            "weight": 1,
+                            "sub_tasks": [],
+                            "task_category": "Result Analysis",
+                            "finegrained_task_category": "Evaluation, Metrics & Benchmarking"
+                        }
+                    ],
+                    "task_category": null,
+                    "finegrained_task_category": null
+                }
+            ],
+            "task_category": null,
+            "finegrained_task_category": null
+        }
+    ],
+    "task_category": null,
+    "finegrained_task_category": null
+}

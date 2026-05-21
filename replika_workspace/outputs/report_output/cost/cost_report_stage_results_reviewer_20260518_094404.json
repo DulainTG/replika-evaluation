@@ -1,0 +1,21 @@
+[
+  {
+    "Agent": "results reviewer",
+    "Cost ($)": 0.0,
+    "Prompt Tokens": 24419,
+    "Completion Tokens": 2629,
+    "Total Tokens": 27048,
+    "Cached Prompt Tokens": 0,
+    "Model": "gemini-3-flash-preview",
+    "Provider": "openai"
+  },
+  {
+    "Agent": "Total",
+    "Cost ($)": 0.0,
+    "Prompt Tokens": 24419,
+    "Completion Tokens": 2629,
+    "Total Tokens": 27048,
+    "Cached Prompt Tokens": 0,
+    "Model": ""
+  }
+]

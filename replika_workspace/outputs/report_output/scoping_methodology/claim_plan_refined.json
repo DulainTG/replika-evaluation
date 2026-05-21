@@ -1,0 +1,539 @@
+{
+  "plan_summary": {
+    "paper_title": "Transverse-Dominant Anisotropic Dispersion and Transient Trapping in 3D Solenoidal Turbulence",
+    "methodology_objective": "Reconstruct 8,000 Lagrangian tracer trajectories through 3D solenoidal turbulence velocity fields to validate anisotropy in dispersion, transient vortex residence times, and the Gaussian/platykurtic nature of displacement distributions.",
+    "minimum_credible_reproduction_goal": "Successfully integrate tracers to compute the dynamic anisotropy ratio (lambda) and the vortex trapping timescale (tau_Q) to within the paper's specified ranges, while confirming the transition of displacement PDFs from Gaussian to platykurtic.",
+    "planning_scope_summary": "The plan focuses on generating Lagrangian trajectories (EXP1) as a prerequisite, followed by four targeted analysis experiments (EXP2-5) corresponding to claims C1-C4. It accounts for the 50% reduction in temporal resolution available in the context (100 vs 200 snapshots)."
+  },
+  "claim_plans": [
+    {
+      "claim_id": "C1",
+      "reproduction_modes": [
+        "core_empirical_benchmark"
+      ],
+      "reproduction_priority": "must_reproduce",
+      "testability_status": "partially_reproducible",
+      "target_evidence_types": [
+        "approximate_numeric_match",
+        "directional_numeric_agreement"
+      ],
+      "linked_display_item_ids": [
+        "D3"
+      ],
+      "target_specification_ids": [
+        "S6",
+        "S7"
+      ],
+      "target_metric_definitions": [
+        {
+          "metric_name": "Dynamic Anisotropy Ratio (lambda)",
+          "metric_role": "primary",
+          "metric_source_type": "explicit_paper_metric",
+          "metric_definition_or_proxy": "Ratio of parallel to perpendicular Mean-Square Displacement relative to the local large-scale velocity unit vector.",
+          "expected_direction": "stabilize_below_1"
+        }
+      ],
+      "expected_outcome_summary": "After an initial ballistic peak (approx 2.96), lambda(t) should stabilize at approximately 0.52 for t > 0.5.",
+      "acceptance_criteria": {
+        "acceptance_type": "approximate",
+        "acceptance_statement": "The stabilized value of lambda(t) for t > 1.0 must fall within the range 0.45 - 0.60.",
+        "tolerance_notes": "A wider tolerance is allowed due to the reduced temporal resolution (100 vs 200 snapshots) and potential differences in the spectral filter implementation.",
+        "minimum_success_condition": "lambda(t) < 1.0 for the majority of the diffusive regime (t > 1.0).",
+        "provenance_type": "derived_from_scoped_specification",
+        "provenance_rationale": "S7 defines 0.52 +/- 0.045; the threshold 0.45-0.60 allows for discretization error.",
+        "acceptance_confidence": "medium"
+      },
+      "prerequisite_claim_ids": [],
+      "prerequisite_resource_ids": [
+        "RS2"
+      ],
+      "proposed_experiment_ids": [
+        "EXP2",
+        "EXP1"
+      ],
+      "planning_notes": "Requires the computation of the filtered large-scale velocity field (VLS) using a sharp spectral filter (n=1-3).",
+      "claim_specific_risks": [
+        "Sensitive to the precision of the spectral filter implementation.",
+        "Reduced snapshot count may dampen the peak value (S6)."
+      ],
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "C2",
+      "reproduction_modes": [
+        "statistical_diagnostic"
+      ],
+      "reproduction_priority": "must_reproduce",
+      "testability_status": "partially_reproducible",
+      "target_evidence_types": [
+        "approximate_numeric_match",
+        "threshold_agreement"
+      ],
+      "linked_display_item_ids": [
+        "D4"
+      ],
+      "target_specification_ids": [
+        "S8",
+        "S9"
+      ],
+      "target_metric_definitions": [
+        {
+          "metric_name": "Vortex Trapping Timescale (tau_Q)",
+          "metric_role": "primary",
+          "metric_source_type": "explicit_paper_metric",
+          "metric_definition_or_proxy": "Time at which the Lagrangian autocorrelation of the Q-criterion decays to 1/e.",
+          "expected_direction": "approx_0.2"
+        },
+        {
+          "metric_name": "Trapping-to-Turnover Ratio",
+          "metric_role": "diagnostic",
+          "metric_source_type": "explicit_paper_metric",
+          "metric_definition_or_proxy": "Ratio of tau_Q to large-eddy turnover time (Te).",
+          "expected_direction": "approx_0.077"
+        }
+      ],
+      "expected_outcome_summary": "The trapping timescale should be roughly 7-8% of the eddy turnover time, indicating highly transient capture.",
+      "acceptance_criteria": {
+        "acceptance_type": "threshold",
+        "acceptance_statement": "The ratio tau_Q / Te must be less than 0.15.",
+        "tolerance_notes": "While 0.077 is the target, any value significantly less than 1.0 supports the claim of transience.",
+        "minimum_success_condition": "tau_Q / Te < 0.15.",
+        "provenance_type": "planner_defined_mvp_rule",
+        "provenance_rationale": "Validation of 'transience' requires tau_Q to be a small fraction of Te.",
+        "acceptance_confidence": "high"
+      },
+      "prerequisite_claim_ids": [],
+      "prerequisite_resource_ids": [
+        "RS2"
+      ],
+      "proposed_experiment_ids": [
+        "EXP3",
+        "EXP1"
+      ],
+      "planning_notes": "Tau_Q is sensitive to the trilinear interpolation of velocity gradients in high-Q regions.",
+      "claim_specific_risks": [
+        "Lower snapshot resolution may artificially accelerate or decelerate decorrelation."
+      ],
+      "confidence": 0.85
+    },
+    {
+      "claim_id": "C3",
+      "reproduction_modes": [
+        "statistical_diagnostic"
+      ],
+      "reproduction_priority": "strong_should_reproduce",
+      "testability_status": "directly_reproducible",
+      "target_evidence_types": [
+        "diagnostic_pattern_support",
+        "qualitative_pattern_match"
+      ],
+      "linked_display_item_ids": [
+        "D5"
+      ],
+      "target_specification_ids": [
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "target_metric_definitions": [
+        {
+          "metric_name": "Kolmogorov-Smirnov p-value",
+          "metric_role": "primary",
+          "metric_source_type": "explicit_paper_metric",
+          "metric_definition_or_proxy": "Statistical test comparing displacement PDF to a Gaussian distribution at intermediate time t=2.0.",
+          "expected_direction": "greater_than_0.05"
+        },
+        {
+          "metric_name": "Excess Kurtosis",
+          "metric_role": "secondary",
+          "metric_source_type": "explicit_paper_metric",
+          "metric_definition_or_proxy": "Measure of the 'flatness' of the displacement PDF at late times (t=9.0).",
+          "expected_direction": "negative"
+        }
+      ],
+      "expected_outcome_summary": "Displacements follow a Gaussian distribution at t=2.0 and become platykurtic (negative kurtosis) as they hit the periodic boundary limit at t=9.0.",
+      "acceptance_criteria": {
+        "acceptance_type": "mixed",
+        "acceptance_statement": "KS test p-value > 0.05 at t=2.0 and Excess Kurtosis < -0.5 at t=9.0.",
+        "tolerance_notes": "Specific targets are p=0.53 and kurtosis=-1.2, but general agreement on Gaussianity vs platykurticity is sufficient.",
+        "minimum_success_condition": "Successful rejection of heavy-tailed hypothesis (Hill exponent < -5).",
+        "provenance_type": "direct_table_or_figure_target",
+        "provenance_rationale": "Derived directly from Figure 5 and S10/S11.",
+        "acceptance_confidence": "high"
+      },
+      "prerequisite_claim_ids": [],
+      "prerequisite_resource_ids": [
+        "RS2"
+      ],
+      "proposed_experiment_ids": [
+        "EXP4",
+        "EXP1"
+      ],
+      "planning_notes": "Ensure displacements are normalized by the root-mean-square displacement for PDF comparison.",
+      "claim_specific_risks": [],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": "C4",
+      "reproduction_modes": [
+        "comparative_synthesis"
+      ],
+      "reproduction_priority": "nice_to_reproduce",
+      "testability_status": "indirectly_testable",
+      "target_evidence_types": [
+        "diagnostic_pattern_support",
+        "ranking_agreement"
+      ],
+      "linked_display_item_ids": [
+        "D6",
+        "D7"
+      ],
+      "target_specification_ids": [
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "target_metric_definitions": [
+        {
+          "metric_name": "Pearson Correlation (r)",
+          "metric_role": "primary",
+          "metric_source_type": "explicit_paper_metric",
+          "metric_definition_or_proxy": "Correlation between long-time FTLE and vortex residence fraction.",
+          "expected_direction": "near_zero"
+        }
+      ],
+      "expected_outcome_summary": "FTLE distributions for trapped and free cohorts should overlap significantly with near-zero correlation to trapping time.",
+      "acceptance_criteria": {
+        "acceptance_type": "threshold",
+        "acceptance_statement": "Pearson r between long-time FTLE and residence time must be < 0.1.",
+        "tolerance_notes": "Paper reports 0.002; any value indicating no strong linear relationship is acceptable.",
+        "minimum_success_condition": "Overlap of interquartile ranges of FTLE for Trapped vs Free cohorts.",
+        "provenance_type": "planner_defined_mvp_rule",
+        "provenance_rationale": "Validation of 'ineffectiveness' requires showing lack of predictive/discriminative power.",
+        "acceptance_confidence": "medium"
+      },
+      "prerequisite_claim_ids": [
+        "C2"
+      ],
+      "prerequisite_resource_ids": [
+        "RS2"
+      ],
+      "proposed_experiment_ids": [
+        "EXP5",
+        "EXP1"
+      ],
+      "planning_notes": "Requires integration of the Jacobian along tracer paths or measuring separation of close particle pairs to estimate FTLE.",
+      "claim_specific_risks": [
+        "Computation of FTLE is sensitive to interpolation errors in the velocity gradient."
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "proposed_experiments": [
+    {
+      "experiment_id": "EXP1",
+      "experiment_label": "Tracer Trajectory Generation",
+      "experiment_goal": "Generate the Lagrangian tracer trajectory dataset (DS2) from raw velocity snapshots (DS1).",
+      "linked_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "experiment_category": "benchmark_reproduction",
+      "required_dataset_ids": [
+        "DS1"
+      ],
+      "required_dataset_names": [
+        "3D Solenoidal Turbulence Velocity Snapshots"
+      ],
+      "required_resource_ids": [
+        "RS1",
+        "RS2"
+      ],
+      "target_specification_ids": [],
+      "key_parameters": [
+        "n_tracers: 8000",
+        "integrator: 4th-order Runge-Kutta (RK4)",
+        "substeps_per_snapshot: 10",
+        "interpolation: trilinear",
+        "boundary_conditions: periodic (L=1)",
+        "initial_seeding: random uniform",
+        "total_snapshots: 200",
+        "domain_size_L: 1.0"
+      ],
+      "equation_mentions": [
+        "dx/dt = v(x(t), t)"
+      ],
+      "procedure_outline": [
+        "Initialize 8,000 tracers at random (x, y, z) coordinates in [0, 1].",
+        "Load consecutive pairs of VTK snapshots from DS1.",
+        "For each pair, perform 10 RK4 integration steps.",
+        "Use trilinear interpolation to evaluate velocity at tracer positions between grid points.",
+        "Apply modulo 1.0 to coordinates after each step to maintain periodic boundaries.",
+        "Save coordinates (x, y, z) and local velocity v at every time step to construct DS2."
+      ],
+      "key_definitions": [
+        "RK4: A fourth-order numerical method for solving ordinary differential equations.",
+        "Trilinear Interpolation: Method for estimating values within a 3D grid cell based on its 8 vertices."
+      ],
+      "required_experiment_outputs": [
+        {
+          "artifact_type": "json_metrics",
+          "description": "Validation metrics for integration consistency.",
+          "scope": "Ensemble-wide",
+          "content_contract": "Mean squared velocity, coordinate range check (0-1), and timestamp verification."
+        }
+      ],
+      "unknowns": [
+        "Exact delta_t between snapshots",
+        "Initial random seed value"
+      ],
+      "experiment_output_links": [],
+      "experiment_priority": "must_run",
+      "feasibility_notes": "Prerequisite for all subsequent analysis."
+    },
+    {
+      "experiment_id": "EXP2",
+      "experiment_label": "Anisotropic Dispersion Analysis",
+      "experiment_goal": "Measure the transverse-dominant anisotropy ratio lambda(t) relative to the large-scale velocity field.",
+      "linked_claim_ids": [
+        "C1"
+      ],
+      "experiment_category": "benchmark_reproduction",
+      "required_dataset_ids": [
+        "DS1"
+      ],
+      "required_dataset_names": [
+        "3D Solenoidal Turbulence Velocity Snapshots"
+      ],
+      "required_resource_ids": [
+        "RS1",
+        "RS2"
+      ],
+      "target_specification_ids": [
+        "S6",
+        "S7"
+      ],
+      "key_parameters": [
+        "spectral_filter_modes: n = 1 to 3",
+        "lag_time_range: 0 to 9.0",
+        "domain_size_L: 1.0"
+      ],
+      "equation_mentions": [
+        "MSD||(t) = <(delta_x(t) . V_LS_hat)^2>",
+        "MSD_perp(t) = <|delta_x(t) - (delta_x(t) . V_LS_hat)V_LS_hat|^2>",
+        "lambda(t) = MSD||(t) / MSD_perp(t)",
+        "MSD(t) = <|delta_x(t)|^2>",
+        "alpha(t) = d(log MSD) / d(log t)",
+        "Velocity Autocorrelation Function (VACF): <v(t_0) . v(t_0 + t)>"
+      ],
+      "procedure_outline": [
+        "Compute the large-scale filtered velocity field VLS for each snapshot using a sharp Fourier filter (k_mag in [1, 3]).",
+        "Calculate the unit vector V_LS_hat at each tracer position and time.",
+        "Compute the parallel and perpendicular components of displacement for each tracer relative to V_LS_hat at t0+t.",
+        "Aggregate parallel and perpendicular MSD over the tracer ensemble for all lag times t.",
+        "Calculate the ratio lambda(t) and compare against target 0.52."
+      ],
+      "key_definitions": [
+        "Sharp Spectral Filter: A low-pass filter in Fourier space that zero-out components outside a specified wavenumber range.",
+        "V_LS: Large-scale velocity field derived from driving modes.",
+        "Ballistic regime: Local logarithmic slope alpha approx 2.",
+        "Superdiffusive regime: Local logarithmic slope 1 < alpha < 2.",
+        "Diffusive regime: Local logarithmic slope alpha approx 1."
+      ],
+      "required_experiment_outputs": [
+        {
+          "artifact_type": "png_plot",
+          "description": "Temporal evolution of the anisotropy ratio lambda(t).",
+          "scope": "All tracers",
+          "content_contract": "X-axis: lag time t; Y-axis: lambda(t); includes a horizontal line at 0.52."
+        }
+      ],
+      "unknowns": [
+        "Exact normalization of the FFT-based filter"
+      ],
+      "experiment_output_links": [
+        "Figure 3"
+      ],
+      "experiment_priority": "must_run",
+      "feasibility_notes": "High priority as it validates the main contribution of the paper."
+    },
+    {
+      "experiment_id": "EXP3",
+      "experiment_label": "Vortex Residence Time Calculation",
+      "experiment_goal": "Quantify the residence time tau_Q of tracers in coherent vortices using the Q-criterion.",
+      "linked_claim_ids": [
+        "C2"
+      ],
+      "experiment_category": "diagnostic_analysis",
+      "required_dataset_ids": [
+        "DS1"
+      ],
+      "required_dataset_names": [
+        "3D Solenoidal Turbulence Velocity Snapshots"
+      ],
+      "required_resource_ids": [
+        "RS1",
+        "RS2"
+      ],
+      "target_specification_ids": [
+        "S8",
+        "S9"
+      ],
+      "key_parameters": [
+        "Q_threshold: 0",
+        "Te: 2.6",
+        "v_rms: 0.38"
+      ],
+      "equation_mentions": [
+        "Q = 0.5 * (||Omega||^2 - ||S||^2)",
+        "Omega = 0.5 * (∇v - (∇v)^T)",
+        "S = 0.5 * (∇v + (∇v)^T)"
+      ],
+      "procedure_outline": [
+        "For each velocity snapshot, compute the velocity gradient tensor and derive the Q-criterion field.",
+        "Sample the Q-value along each tracer trajectory generated in EXP1.",
+        "Compute the Lagrangian autocorrelation function of the Q-signal for the ensemble.",
+        "Determine the lag time tau_Q where the correlation drops to 1/e.",
+        "Calculate the ratio tau_Q / Te and compare against 0.077."
+      ],
+      "key_definitions": [
+        "Q-criterion: A second invariant of the velocity gradient tensor used to identify vortices.",
+        "Lagrangian Autocorrelation: Correlation of a property sampled along a particle path with itself at different times."
+      ],
+      "required_experiment_outputs": [
+        {
+          "artifact_type": "csv_table",
+          "description": "Computed timescales and ratios.",
+          "scope": "Ensemble summary",
+          "content_contract": "Columns: tau_Q, Te, ratio_tau_Te."
+        }
+      ],
+      "unknowns": [
+        "Sensitivity to trilinear vs higher-order gradient calculation"
+      ],
+      "experiment_output_links": [
+        "Figure 4"
+      ],
+      "experiment_priority": "must_run",
+      "feasibility_notes": "Critical for validating the lack of anomalous transport mechanism."
+    },
+    {
+      "experiment_id": "EXP4",
+      "experiment_label": "Displacement PDF Evolution",
+      "experiment_goal": "Analyze the shape of displacement distributions at intermediate and late times.",
+      "linked_claim_ids": [
+        "C3"
+      ],
+      "experiment_category": "diagnostic_analysis",
+      "required_dataset_ids": [],
+      "required_dataset_names": [],
+      "required_resource_ids": [
+        "RS2"
+      ],
+      "target_specification_ids": [
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "key_parameters": [
+        "time_lags: [0.5, 1.0, 2.0, 5.0, 9.0]",
+        "domain_size_L: 1.0"
+      ],
+      "equation_mentions": [
+        "Hill estimator tail index: alpha_L"
+      ],
+      "procedure_outline": [
+        "Extract single-component displacements (delta_x) from EXP1 trajectories for specified time lags.",
+        "Normalize displacements by the ensemble standard deviation at each lag.",
+        "Compute histograms (PDFs) of the normalized displacements.",
+        "Perform KS test at t=2.0 against a standard Gaussian (mu=0, sigma=1).",
+        "Calculate excess kurtosis for t=5.0 and t=9.0.",
+        "Apply Hill estimator to the tails of the late-time distributions to check for power-law behavior."
+      ],
+      "key_definitions": [
+        "Platykurtic: A distribution with thinner tails and a flatter peak than a normal distribution (negative excess kurtosis).",
+        "Hill Estimator: A method for estimating the tail index of a distribution.",
+        "Geometric saturation limit: Maximum squared displacement in a periodic domain, L^2 / 6 ≈ 0.167."
+      ],
+      "required_experiment_outputs": [
+        {
+          "artifact_type": "png_plot",
+          "description": "PDFs of normalized displacements at multiple time lags.",
+          "scope": "All tracers",
+          "content_contract": "Series: t=0.5, 1.0, 2.0, 5.0, 9.0; overlaid with a standard Gaussian curve."
+        }
+      ],
+      "unknowns": [],
+      "experiment_output_links": [
+        "Figure 5"
+      ],
+      "experiment_priority": "should_run",
+      "feasibility_notes": "Straightforward post-processing of EXP1."
+    },
+    {
+      "experiment_id": "EXP5",
+      "experiment_label": "FTLE and Chaos Analysis",
+      "experiment_goal": "Investigate the (lack of) relationship between chaotic stretching and vortex trapping.",
+      "linked_claim_ids": [
+        "C4"
+      ],
+      "experiment_category": "comparative_evaluation",
+      "required_dataset_ids": [],
+      "required_dataset_names": [],
+      "required_resource_ids": [
+        "RS2"
+      ],
+      "target_specification_ids": [
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "key_parameters": [
+        "trapped_cohort_threshold: top 20% Q-residence",
+        "free_cohort_threshold: bottom 20% Q-residence",
+        "domain_size_L: 1.0"
+      ],
+      "equation_mentions": [],
+      "procedure_outline": [
+        "Calculate the long-time FTLE for each tracer by integrating the growth of a small perturbation vector along the path.",
+        "Classify tracers into 'Trapped' and 'Free' cohorts based on the fraction of time spent in Q > 0 regions.",
+        "Compute histograms and mean FTLE for both cohorts.",
+        "Calculate the Pearson correlation coefficient between FTLE and residence fraction.",
+        "Identify 'vortex exit' events (transition from Q > 0 to Q < 0) and record the instantaneous FTLE."
+      ],
+      "key_definitions": [
+        "FTLE: Finite-Time Lyapunov Exponent, measuring the exponential rate of separation of neighboring trajectories.",
+        "Trapped Cohort: Subset of tracers with high residence time in coherent vortices."
+      ],
+      "required_experiment_outputs": [
+        {
+          "artifact_type": "markdown_table",
+          "description": "FTLE statistics comparison.",
+          "scope": "Cohort comparison",
+          "content_contract": "Rows: Trapped, Free, Exit Events; Columns: Mean FTLE, Std Dev, Pearson r."
+        }
+      ],
+      "unknowns": [
+        "Exact method used for FTLE in paper (perturbation integration vs separation of adjacent tracers)"
+      ],
+      "experiment_output_links": [
+        "Figure 6",
+        "Figure 7"
+      ],
+      "experiment_priority": "if_feasible",
+      "feasibility_notes": "Computationally more intensive and sensitive to gradient precision; secondary result."
+    }
+  ],
+  "global_methodology_notes": [
+    "Lagrangian integration will use standard 4th-order Runge-Kutta with trilinear interpolation as specified in paper section 2.2.",
+    "Spectral filtering for VLS calculation will be performed using a sharp k-space window [1, 3] on a 3D FFT of the velocity field.",
+    "Finite domain effects (periodic boundaries) are critical for late-time displacement statistics and must be handled via modulo operations without 'unwrapping' the coordinates for the PDF analysis."
+  ],
+  "global_risks_or_open_questions": [
+    "The 50% reduction in temporal snapshots (100 vs 200) is the primary risk for numeric identity. We mitigate this by using 10 integration substeps between available snapshots.",
+    "The 'sharp spectral filter' implementation (normalization and grid alignment) is not fully specified and may introduce small biases in VLS directionality.",
+    "Random seeding of tracers: Without the original seeds, the ensemble results should be robust but exact individual trajectories won't match."
+  ]
+}

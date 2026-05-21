@@ -1,0 +1,50 @@
+{
+  "status": "success",
+  "results_artifacts_dir": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs",
+  "paper_markdown_path": "/Users/dtgamage/Replika/replika/common/paper/paper/paper_ocr.md",
+  "methodology_dir": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/methodology_output",
+  "scoping_dir": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/scoping_output",
+  "background_writer_agent_id": "../../stages/report/agents/background_writer",
+  "reviewer_agent_id": "../../stages/report/agents/results_reviewer",
+  "experiment_priority_filter": 3,
+  "cost_dir": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/cost",
+  "cost_reports": {
+    "background_writer": {
+      "stage_report_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/cost/cost_report_stage_background_writer_20260518_094404.json",
+      "cumulative_report_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/cost/cost_report_cumulative_background_writer_20260518_094404.json"
+    },
+    "results_reviewer": {
+      "stage_report_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/cost/cost_report_stage_results_reviewer_20260518_094404.json",
+      "cumulative_report_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/cost/cost_report_cumulative_results_reviewer_20260518_094404.json"
+    }
+  },
+  "background_json_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/background.json",
+  "results_review_json_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/results_review.json",
+  "final_report_json_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/final_report_structured.json",
+  "support_files": {
+    "claim_plan_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/scoping_methodology/claim_plan_refined.json",
+    "dataset_context_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/scoping_methodology/dataset_context_report.json",
+    "scope_refined_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/scoping_methodology/scope_refined.json",
+    "scope_graph_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/assets/scope_graph.png",
+    "scope_graph_key_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/assets/scope_graph_key.png"
+  },
+  "artifact_counts": {
+    "artifact_inventory_files": 108,
+    "artifact_text_samples": 4,
+    "image_artifacts_attached": 2,
+    "rendered_figures": 2,
+    "rendered_tables": 1
+  },
+  "included_experiment_dirs": [
+    "exp1",
+    "exp2",
+    "exp3",
+    "exp4",
+    "exp5"
+  ],
+  "background_output_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/background.md",
+  "output_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/results_review.md",
+  "final_report_output_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/final_report.md",
+  "final_report_pdf_output_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/final_report.pdf",
+  "final_report_tex_output_path": "/Users/dtgamage/Replika/replika/common/outputs/paper/run_20260517_133135/zerorepo_run_20260518_094404/workspace/outputs/report_output/final_report.tex"
+}

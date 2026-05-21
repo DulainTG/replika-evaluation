@@ -1,0 +1,493 @@
+{
+  "context_summary": {
+    "paper_title": "Transverse-Dominant Anisotropic Dispersion and Transient Trapping in 3D Solenoidal Turbulence",
+    "task_summary": "The research analyzes particle transport in 3D solenoidal turbulence, focusing on dispersion anisotropy, vortex trapping residence times, and displacement probability distributions using Lagrangian tracer integration in a direct numerical simulation (DNS).",
+    "context_scope_summary": "The environment contains 100 VTK snapshots of a 3D turbulence simulation. These files provide the velocity field data required for the Lagrangian integration and Q-criterion analysis described in the methodology, though the paper mentions using 200 snapshots total.",
+    "overall_reproduction_readiness": "moderate"
+  },
+  "dataset_inventory": [
+    {
+      "dataset_id": "DS1",
+      "dataset_name": "3D Solenoidal Turbulence Velocity Snapshots",
+      "file_names": [
+        "Turb.hydro_w.18903.vtk",
+        "Turb.hydro_w.18913.vtk",
+        "Turb.hydro_w.18923.vtk",
+        "Turb.hydro_w.18933.vtk",
+        "Turb.hydro_w.18943.vtk",
+        "Turb.hydro_w.18953.vtk",
+        "Turb.hydro_w.18963.vtk",
+        "Turb.hydro_w.18973.vtk",
+        "Turb.hydro_w.18983.vtk",
+        "Turb.hydro_w.18993.vtk",
+        "Turb.hydro_w.19003.vtk",
+        "Turb.hydro_w.19013.vtk",
+        "Turb.hydro_w.19023.vtk",
+        "Turb.hydro_w.19033.vtk",
+        "Turb.hydro_w.19043.vtk",
+        "Turb.hydro_w.19053.vtk",
+        "Turb.hydro_w.19063.vtk",
+        "Turb.hydro_w.19073.vtk",
+        "Turb.hydro_w.19083.vtk",
+        "Turb.hydro_w.19093.vtk",
+        "Turb.hydro_w.19103.vtk",
+        "Turb.hydro_w.19113.vtk",
+        "Turb.hydro_w.19123.vtk",
+        "Turb.hydro_w.19133.vtk",
+        "Turb.hydro_w.19143.vtk",
+        "Turb.hydro_w.19153.vtk",
+        "Turb.hydro_w.19163.vtk",
+        "Turb.hydro_w.19173.vtk",
+        "Turb.hydro_w.19183.vtk",
+        "Turb.hydro_w.19193.vtk",
+        "Turb.hydro_w.19203.vtk",
+        "Turb.hydro_w.19213.vtk",
+        "Turb.hydro_w.19223.vtk",
+        "Turb.hydro_w.19233.vtk",
+        "Turb.hydro_w.19243.vtk",
+        "Turb.hydro_w.19253.vtk",
+        "Turb.hydro_w.19263.vtk",
+        "Turb.hydro_w.19273.vtk",
+        "Turb.hydro_w.19283.vtk",
+        "Turb.hydro_w.19293.vtk",
+        "Turb.hydro_w.19303.vtk",
+        "Turb.hydro_w.19313.vtk",
+        "Turb.hydro_w.19323.vtk",
+        "Turb.hydro_w.19333.vtk",
+        "Turb.hydro_w.19343.vtk",
+        "Turb.hydro_w.19353.vtk",
+        "Turb.hydro_w.19363.vtk",
+        "Turb.hydro_w.19373.vtk",
+        "Turb.hydro_w.19383.vtk",
+        "Turb.hydro_w.19393.vtk",
+        "Turb.hydro_w.19403.vtk",
+        "Turb.hydro_w.19413.vtk",
+        "Turb.hydro_w.19423.vtk",
+        "Turb.hydro_w.19433.vtk",
+        "Turb.hydro_w.19443.vtk",
+        "Turb.hydro_w.19453.vtk",
+        "Turb.hydro_w.19463.vtk",
+        "Turb.hydro_w.19473.vtk",
+        "Turb.hydro_w.19483.vtk",
+        "Turb.hydro_w.19493.vtk",
+        "Turb.hydro_w.19503.vtk",
+        "Turb.hydro_w.19513.vtk",
+        "Turb.hydro_w.19523.vtk",
+        "Turb.hydro_w.19533.vtk",
+        "Turb.hydro_w.19543.vtk",
+        "Turb.hydro_w.19553.vtk",
+        "Turb.hydro_w.19563.vtk",
+        "Turb.hydro_w.19573.vtk",
+        "Turb.hydro_w.19583.vtk",
+        "Turb.hydro_w.19593.vtk",
+        "Turb.hydro_w.19603.vtk",
+        "Turb.hydro_w.19613.vtk",
+        "Turb.hydro_w.19623.vtk",
+        "Turb.hydro_w.19633.vtk",
+        "Turb.hydro_w.19643.vtk",
+        "Turb.hydro_w.19653.vtk",
+        "Turb.hydro_w.19663.vtk",
+        "Turb.hydro_w.19673.vtk",
+        "Turb.hydro_w.19683.vtk",
+        "Turb.hydro_w.19693.vtk",
+        "Turb.hydro_w.19703.vtk",
+        "Turb.hydro_w.19713.vtk",
+        "Turb.hydro_w.19723.vtk",
+        "Turb.hydro_w.19733.vtk",
+        "Turb.hydro_w.19743.vtk",
+        "Turb.hydro_w.19753.vtk",
+        "Turb.hydro_w.19763.vtk",
+        "Turb.hydro_w.19773.vtk",
+        "Turb.hydro_w.19783.vtk",
+        "Turb.hydro_w.19793.vtk",
+        "Turb.hydro_w.19803.vtk",
+        "Turb.hydro_w.19813.vtk",
+        "Turb.hydro_w.19823.vtk",
+        "Turb.hydro_w.19833.vtk",
+        "Turb.hydro_w.19843.vtk",
+        "Turb.hydro_w.19853.vtk",
+        "Turb.hydro_w.19863.vtk",
+        "Turb.hydro_w.19873.vtk",
+        "Turb.hydro_w.19883.vtk",
+        "Turb.hydro_w.19893.vtk"
+      ],
+      "dataset_role": "primary_benchmark",
+      "paper_usage_summary": "Used as the underlying 3D velocity field sequence to perform Lagrangian integration of 8,000 tracers. It serves as the basis for calculating Q-criterion, vorticity, and the filtered large-scale velocity field.",
+      "availability_status": "available_local",
+      "accessibility_notes": "100 files are present in the provided raw data inventory, though the paper specifies 200 snapshots were used in the original study.",
+      "provenance_type": "user_provided_local",
+      "split_fidelity": "approximately_matching",
+      "split_description": "The paper uses 200 temporal snapshots; 100 snapshots are provided locally, likely representing half the temporal resolution or a specific window of the simulation.",
+      "preprocessing_status": "explicit_but_not_available",
+      "preprocessing_notes": "Requires calculation of Q-criterion (Eq 1), vorticity (omega), and a sharp spectral filter (n=1-3) to derive the large-scale velocity field (VLS).",
+      "modality": "time_series",
+      "data_structure_summary": "Sequence of 3D scalar/vector fields in VTK format representing a periodic cubic domain (L=1).",
+      "temporal_frequency_or_resolution": "100 snapshots provided with a numerical step of 10 in the file indexing (e.g., 18903, 18913).",
+      "horizon_or_evaluation_settings": "Lagrangian integration requires 10 sub-steps between snapshots using a 4th-order Runge-Kutta scheme.",
+      "target_variable_or_task_unit": "3D Velocity vector field v(x,t).",
+      "format_or_storage_notes": "VTK format, approximately 41.9 MB per snapshot.",
+      "licensing_or_access_notes": "Described as a publicly available DNS dataset.",
+      "dataset_specific_risks": [
+        "Lower temporal resolution (100 vs 200 snapshots) may affect Lagrangian integration accuracy.",
+        "Missing the large-scale filtered velocity field (must be computed)."
+      ],
+      "confidence": 0.95,
+      "deterministic_data_profile": {
+        "raw_data_dir": "/Users/dtgamage/Replika/raw_data",
+        "match_status": "matched",
+        "matched_files": [
+          {
+            "local_path": "/Users/dtgamage/Replika/raw_data/Turb.hydro_w.18903.vtk",
+            "file_format": "vtk",
+            "file_size_bytes": 41943591,
+            "vtk_header": {
+              "vtk_version_line": "# vtk DataFile Version 2.0",
+              "title": "# Athena++ data at time= 189.03  level= 0  nranks= 4  cycle=480090  variables=hydro_w",
+              "encoding": "BINARY"
+            },
+            "vtk_dataset_type": "STRUCTURED_POINTS",
+            "vtk_dimensions": [
+              129,
+              129,
+              129
+            ],
+            "vtk_spacing": [
+              0.0078125,
+              0.0078125,
+              0.0078125
+            ],
+            "vtk_origin": [
+              -0.5,
+              -0.5,
+              -0.5
+            ],
+            "vtk_cell_data_count": 2097152,
+            "vtk_data_attributes": [
+              {
+                "attribute_type": "scalars",
+                "attribute_name": "dens"
+              }
+            ],
+            "vtk_sample_lines": [
+              "# vtk DataFile Version 2.0",
+              "# Athena++ data at time= 189.03  level= 0  nranks= 4  cycle=480090  variables=hydro_w",
+              "BINARY",
+              "DATASET STRUCTURED_POINTS",
+              "DIMENSIONS 129 129 129",
+              "ORIGIN -5.0000000000000000e-01 -5.0000000000000000e-01 -5.0000000000000000e-01",
+              "SPACING 7.8125000000000000e-03 7.8125000000000000e-03 7.8125000000000000e-03",
+              "CELL_DATA 2097152",
+              "SCALARS dens float",
+              "LOOKUP_TABLE default",
+              "?�\u001f?�\u0000?�W?��?��?�%?�?o`?\\�?G�?/�?\u0016L?~��?~��?~� ?~�'?~��?~��?~��?~�\u0012?~��?~�\u0018?~�J?~��?\u0013�?61?Z.?}�?�W?�'?��?�",
+              "?�"
+            ]
+          },
+          {
+            "local_path": "/Users/dtgamage/Replika/raw_data/Turb.hydro_w.18913.vtk",
+            "file_format": "vtk",
+            "file_size_bytes": 41943591,
+            "vtk_header": {
+              "vtk_version_line": "# vtk DataFile Version 2.0",
+              "title": "# Athena++ data at time= 189.13  level= 0  nranks= 4  cycle=480342  variables=hydro_w",
+              "encoding": "BINARY"
+            },
+            "vtk_dataset_type": "STRUCTURED_POINTS",
+            "vtk_dimensions": [
+              129,
+              129,
+              129
+            ],
+            "vtk_spacing": [
+              0.0078125,
+              0.0078125,
+              0.0078125
+            ],
+            "vtk_origin": [
+              -0.5,
+              -0.5,
+              -0.5
+            ],
+            "vtk_cell_data_count": 2097152,
+            "vtk_data_attributes": [
+              {
+                "attribute_type": "scalars",
+                "attribute_name": "dens"
+              }
+            ],
+            "vtk_sample_lines": [
+              "# vtk DataFile Version 2.0",
+              "# Athena++ data at time= 189.13  level= 0  nranks= 4  cycle=480342  variables=hydro_w",
+              "BINARY",
+              "DATASET STRUCTURED_POINTS",
+              "DIMENSIONS 129 129 129",
+              "ORIGIN -5.0000000000000000e-01 -5.0000000000000000e-01 -5.0000000000000000e-01",
+              "SPACING 7.8125000000000000e-03 7.8125000000000000e-03 7.8125000000000000e-03",
+              "CELL_DATA 2097152",
+              "SCALARS dens float",
+              "LOOKUP_TABLE default",
+              "?�F?��?�,?�",
+              "?�5?�\u0018?�L?�Z?��?��?�"
+            ]
+          },
+          {
+            "local_path": "/Users/dtgamage/Replika/raw_data/Turb.hydro_w.18923.vtk",
+            "file_format": "vtk",
+            "file_size_bytes": 41943591,
+            "vtk_header": {
+              "vtk_version_line": "# vtk DataFile Version 2.0",
+              "title": "# Athena++ data at time= 189.23  level= 0  nranks= 4  cycle=480597  variables=hydro_w",
+              "encoding": "BINARY"
+            },
+            "vtk_dataset_type": "STRUCTURED_POINTS",
+            "vtk_dimensions": [
+              129,
+              129,
+              129
+            ],
+            "vtk_spacing": [
+              0.0078125,
+              0.0078125,
+              0.0078125
+            ],
+            "vtk_origin": [
+              -0.5,
+              -0.5,
+              -0.5
+            ],
+            "vtk_cell_data_count": 2097152,
+            "vtk_data_attributes": [
+              {
+                "attribute_type": "scalars",
+                "attribute_name": "dens"
+              }
+            ],
+            "vtk_sample_lines": [
+              "# vtk DataFile Version 2.0",
+              "# Athena++ data at time= 189.23  level= 0  nranks= 4  cycle=480597  variables=hydro_w",
+              "BINARY",
+              "DATASET STRUCTURED_POINTS",
+              "DIMENSIONS 129 129 129",
+              "ORIGIN -5.0000000000000000e-01 -5.0000000000000000e-01 -5.0000000000000000e-01",
+              "SPACING 7.8125000000000000e-03 7.8125000000000000e-03 7.8125000000000000e-03",
+              "CELL_DATA 2097152",
+              "SCALARS dens float",
+              "LOOKUP_TABLE default",
+              "?�|?�O?�/?��?�\u0004?܃?�5?�4?��?�O?�P?��?}�?w\u000e?s\t?j�?f{?c�?b<?a�?c\u000f?e�?k�?s�?|0?��?��?�\"?��?��?�6?��?��?�\u0005E?�\u000e�?�\u0017\u001a?�",
+              "�?�(�?�-�?�2\u001f?�8N?�>�?�B\u001b?�E5?�F�?�E�?�A�?�? ?�?f?�=�?�9�?�5�?�0�?�*�?�#�?�\u001a�?�\u0010�?�\u0005�?�\u000f?�Z?�M?��?�S?v�?]�?L??<Q?2�?)\u0015?,W?5�?D�?Xk?p=?��?��?�b?�n?��?�\u0001�?�"
+            ]
+          },
+          {
+            "local_path": "/Users/dtgamage/Replika/raw_data/Turb.hydro_w.18933.vtk",
+            "file_format": "vtk",
+            "file_size_bytes": 41943591,
+            "vtk_header": {
+              "vtk_version_line": "# vtk DataFile Version 2.0",
+              "title": "# Athena++ data at time= 189.33  level= 0  nranks= 4  cycle=480855  variables=hydro_w",
+              "encoding": "BINARY"
+            },
+            "vtk_dataset_type": "STRUCTURED_POINTS",
+            "vtk_dimensions": [
+              129,
+              129,
+              129
+            ],
+            "vtk_spacing": [
+              0.0078125,
+              0.0078125,
+              0.0078125
+            ],
+            "vtk_origin": [
+              -0.5,
+              -0.5,
+              -0.5
+            ],
+            "vtk_cell_data_count": 2097152,
+            "vtk_data_attributes": [
+              {
+                "attribute_type": "scalars",
+                "attribute_name": "dens"
+              }
+            ],
+            "vtk_sample_lines": [
+              "# vtk DataFile Version 2.0",
+              "# Athena++ data at time= 189.33  level= 0  nranks= 4  cycle=480855  variables=hydro_w",
+              "BINARY",
+              "DATASET STRUCTURED_POINTS",
+              "DIMENSIONS 129 129 129",
+              "ORIGIN -5.0000000000000000e-01 -5.0000000000000000e-01 -5.0000000000000000e-01",
+              "SPACING 7.8125000000000000e-03 7.8125000000000000e-03 7.8125000000000000e-03",
+              "CELL_DATA 2097152",
+              "SCALARS dens float",
+              "LOOKUP_TABLE default",
+              "?�\u0017?�6?��?�\u000e?�Q?�D?�\t?�l?��?�\u0004?r�?d�?]�?S[?V@?L�?Ij?G�?GV?GU?G�?H�?I�?Ko?QG?Y�?cN?f�?o�?z�?�\u0000?��?��?��?�S?�\u0011?�s?�\u0001!?�\t?�\u0012\u0010?�\u001aK?�#L?�(�?�)�?�0�?�5�?�8�?�:^?�;",
+              "?�;�?�=�?�?s?�?�?�<�?�:f?�7p?�2\u001a?�+�?�$k?�"
+            ]
+          },
+          {
+            "local_path": "/Users/dtgamage/Replika/raw_data/Turb.hydro_w.18943.vtk",
+            "file_format": "vtk",
+            "file_size_bytes": 41943591,
+            "vtk_header": {
+              "vtk_version_line": "# vtk DataFile Version 2.0",
+              "title": "# Athena++ data at time= 189.43  level= 0  nranks= 4  cycle=481110  variables=hydro_w",
+              "encoding": "BINARY"
+            },
+            "vtk_dataset_type": "STRUCTURED_POINTS",
+            "vtk_dimensions": [
+              129,
+              129,
+              129
+            ],
+            "vtk_spacing": [
+              0.0078125,
+              0.0078125,
+              0.0078125
+            ],
+            "vtk_origin": [
+              -0.5,
+              -0.5,
+              -0.5
+            ],
+            "vtk_cell_data_count": 2097152,
+            "vtk_data_attributes": [
+              {
+                "attribute_type": "scalars",
+                "attribute_name": "dens"
+              }
+            ],
+            "vtk_sample_lines": [
+              "# vtk DataFile Version 2.0",
+              "# Athena++ data at time= 189.43  level= 0  nranks= 4  cycle=481110  variables=hydro_w",
+              "BINARY",
+              "DATASET STRUCTURED_POINTS",
+              "DIMENSIONS 129 129 129",
+              "ORIGIN -5.0000000000000000e-01 -5.0000000000000000e-01 -5.0000000000000000e-01",
+              "SPACING 7.8125000000000000e-03 7.8125000000000000e-03 7.8125000000000000e-03",
+              "CELL_DATA 2097152",
+              "SCALARS dens float",
+              "LOOKUP_TABLE default",
+              "?�E?�B?��?��?�\u0006?��?�,?�??�\u000e?w6?l*?a�?ZY?Lz?N+?FO?Ab?<\u0002?8\u000e?5�?4~?4%?4[?3�?4\u0004?4�?5�?7;?8]?;�?A\t?G�?Q!?]%?kg?}�?�l?�R?��?�y?�~?��?�",
+              "?�\u0005`?�"
+            ]
+          }
+        ],
+        "matched_file_count": 100,
+        "profiled_file_count": 5,
+        "max_profiled_files_per_dataset": 5
+      }
+    },
+    {
+      "dataset_id": "DS2",
+      "dataset_name": "Lagrangian Tracer Trajectory Dataset",
+      "file_names": [],
+      "dataset_role": "auxiliary_dataset",
+      "paper_usage_summary": "Generated from snapshots (DS1) to calculate MSD, dynamic anisotropy ratio lambda(t), and displacement PDFs.",
+      "availability_status": "paper_described_but_not_available",
+      "accessibility_notes": "These are the trajectories of 8,000 tracers mentioned in the paper; they must be reconstructed by integrating tracers through the DS1 velocity fields.",
+      "provenance_type": "generated_or_reconstructed",
+      "split_fidelity": "unavailable",
+      "split_description": "Tracer data is derived from the simulation rather than provided as raw files.",
+      "preprocessing_status": "explicit_but_not_available",
+      "preprocessing_notes": "Requires implementation of a 4th-order Runge-Kutta integrator with trilinear interpolation and periodic boundary modulo operations.",
+      "modality": "time_series",
+      "data_structure_summary": "8,000 Lagrangian paths (x(t)) integrated over the simulation duration.",
+      "temporal_frequency_or_resolution": "Linked to DS1 snapshots and integration sub-steps (10 sub-steps per snapshot pair).",
+      "horizon_or_evaluation_settings": "Time lags t up to 9.0 (as shown in Figure 5).",
+      "target_variable_or_task_unit": "Tracer position vector x(t).",
+      "format_or_storage_notes": "Typically stored as CSV, HDF5, or NPZ after integration.",
+      "licensing_or_access_notes": "Internal derivative of DS1.",
+      "dataset_specific_risks": [
+        "Interpolation errors (trilinear vs higher-order).",
+        "Sensitivity to initial random seeding of the 8,000 tracers."
+      ],
+      "confidence": 0.9,
+      "deterministic_data_profile": {
+        "raw_data_dir": "/Users/dtgamage/Replika/raw_data",
+        "match_status": "no_matching_raw_file",
+        "matched_files": [],
+        "matched_file_count": 0,
+        "profiled_file_count": 0,
+        "max_profiled_files_per_dataset": 5
+      }
+    }
+  ],
+  "environment_resources": [
+    {
+      "resource_id": "RS1",
+      "resource_name": "Local VTK Repository",
+      "resource_type": "local_filesystem_dataset",
+      "availability_status": "available",
+      "relevance_summary": "Contains the 100 raw VTK velocity field snapshots.",
+      "practical_notes": "Located at /Users/dtgamage/Replika/raw_data.",
+      "related_dataset_ids": [
+        "DS1"
+      ],
+      "confidence": 1.0
+    },
+    {
+      "resource_id": "RS2",
+      "resource_name": "Lagrangian Integration Tooling",
+      "resource_type": "evaluation_script",
+      "availability_status": "unavailable",
+      "relevance_summary": "Code required to perform RK4 integration and spectral filtering (VLS).",
+      "practical_notes": "Must be implemented from scratch based on paper descriptions (Section 2.2).",
+      "related_dataset_ids": [
+        "DS1",
+        "DS2"
+      ],
+      "confidence": 0.9
+    }
+  ],
+  "context_risks": [
+    {
+      "risk_id": "CR1",
+      "risk_label": "Temporal Resolution Mismatch",
+      "risk_category": "missing_dataset",
+      "affected_dataset_ids": [
+        "DS1"
+      ],
+      "affected_resource_ids": [],
+      "risk_description": "The paper uses 200 snapshots, but only 100 are available in the provided inventory.",
+      "likely_reproduction_impact": "Discretization errors in tracer trajectories; potential failure to replicate exact residence times (tau_Q) or peak anisotropy values (S6).",
+      "mitigation_hint": "Interpolate between available snapshots or increase integration sub-steps, but note the limitation in findings.",
+      "severity": "medium"
+    },
+    {
+      "risk_id": "CR2",
+      "risk_label": "Preprocessing Ambiguity in VLS Filtering",
+      "risk_category": "preprocessing_ambiguity",
+      "affected_dataset_ids": [
+        "DS1"
+      ],
+      "affected_resource_ids": [
+        "RS2"
+      ],
+      "risk_description": "The exact implementation of the 'sharp spectral filter in Fourier space' for n=1-3 is not provided.",
+      "likely_reproduction_impact": "The calculation of lambda(t) (anisotropy ratio) is highly sensitive to the definition of VLS.",
+      "mitigation_hint": "Use standard FFT-based low-pass filters in a cubic grid.",
+      "severity": "high"
+    },
+    {
+      "risk_id": "CR3",
+      "risk_label": "Tracer Interpolation Fidelity",
+      "risk_category": "other",
+      "affected_dataset_ids": [
+        "DS2"
+      ],
+      "affected_resource_ids": [
+        "RS2"
+      ],
+      "risk_description": "The paper uses trilinear interpolation, which is low-order for high-gradient regions like vortex cores.",
+      "likely_reproduction_impact": "Possible divergence in Lagrangian statistics in high-vorticity regions compared to higher-order schemes (e.g., cubic splines).",
+      "mitigation_hint": "Stick to trilinear as specified to maintain fidelity to paper's reported error profile.",
+      "severity": "low"
+    }
+  ],
+  "global_missing_information": [
+    "Snapshots 101-200 of the 200-snapshot series mentioned in the paper.",
+    "Standardized list of initial random seed coordinates for the 8,000 tracers to ensure identical ensemble starting points.",
+    "Specific FFT-normalization details for the sharp spectral filter applied to the velocity field.",
+    "Detailed timing information (delta_t) between the 100 VTK snapshots."
+  ]
+}

@@ -1,0 +1,595 @@
+{
+  "paper_summary": {
+    "title": "Transverse-Dominant Anisotropic Dispersion and Transient Trapping in 3D Solenoidal Turbulence",
+    "main_objective": "The study aims to investigate the connection between large-scale solenoidal forcing, coherent vortex structures, and particle transport (specifically dispersion anisotropy and anomalous transport) in 3D subsonic turbulence.",
+    "main_contribution_summary": "The paper identifies a persistent transverse-dominant anisotropy in particle dispersion (where dispersion perpendicular to the flow exceeds parallel dispersion) and demonstrates that vortex trapping is too transient (approx. 7% of an eddy turnover time) to generate sustained anomalous transport or heavy-tailed displacement distributions."
+  },
+  "claims": [
+    {
+      "claim_id": "C1",
+      "claim_text": "Dispersion in 3D solenoidal turbulence exhibits a persistent transverse-dominant anisotropy where transport perpendicular to the local large-scale velocity systematically exceeds parallel transport.",
+      "normalized_claim": "Solenoidal turbulence induces transverse-dominant dispersion anisotropy relative to the large-scale velocity field.",
+      "scope_role": "central",
+      "claim_type": "empirical",
+      "priority_rank": 1,
+      "linked_display_item_ids": [
+        "D3"
+      ],
+      "supporting_evidence_span_ids": [
+        "E1"
+      ],
+      "related_specification_ids": [
+        "S6",
+        "S7"
+      ],
+      "confidence": 0.95,
+      "uncertainties": []
+    },
+    {
+      "claim_id": "C2",
+      "claim_text": "Vortex trapping events are brief, lasting only about 7% of a large-eddy turnover time, which is insufficient to generate long-term memory or anomalous transport.",
+      "normalized_claim": "Vortex trapping in solenoidal turbulence is transient and fails to produce anomalous transport.",
+      "scope_role": "central",
+      "claim_type": "empirical",
+      "priority_rank": 2,
+      "linked_display_item_ids": [
+        "D4"
+      ],
+      "supporting_evidence_span_ids": [
+        "E2",
+        "E3"
+      ],
+      "related_specification_ids": [
+        "S8",
+        "S9"
+      ],
+      "confidence": 0.9,
+      "uncertainties": [
+        "Sensitivity of the 7% value to the Q-criterion threshold used to define vortex cores."
+      ]
+    },
+    {
+      "claim_id": "C3",
+      "claim_text": "Displacement probability distributions do not exhibit heavy tails; they are nearly Gaussian at intermediate times and become platykurtic at late times due to finite-domain effects.",
+      "normalized_claim": "Particle displacement PDFs return to Gaussianity before becoming light-tailed due to domain saturation.",
+      "scope_role": "central",
+      "claim_type": "empirical",
+      "priority_rank": 3,
+      "linked_display_item_ids": [
+        "D5"
+      ],
+      "supporting_evidence_span_ids": [
+        "E4"
+      ],
+      "related_specification_ids": [
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "confidence": 0.95,
+      "uncertainties": []
+    },
+    {
+      "claim_id": "C4",
+      "claim_text": "Long-time Finite-Time Lyapunov Exponents (FTLE) are ineffective at distinguishing between the dynamics of tracers trapped in vortices and those moving freely.",
+      "normalized_claim": "Long-time FTLE does not correlate with vortex residence duration.",
+      "scope_role": "secondary",
+      "claim_type": "empirical",
+      "priority_rank": 4,
+      "linked_display_item_ids": [
+        "D6",
+        "D7"
+      ],
+      "supporting_evidence_span_ids": [
+        "E5"
+      ],
+      "related_specification_ids": [
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "confidence": 0.85,
+      "uncertainties": [
+        "As noted by authors, a shorter-timescale FTLE might be required to observe a causal link."
+      ]
+    }
+  ],
+  "claim_relations": [
+    {
+      "relation_id": "R1",
+      "source_claim_id": "C2",
+      "target_claim_id": "C3",
+      "relation_type": "explains",
+      "justification": "The transient nature of vortex trapping (C2) explains why heavy-tailed distributions characteristic of long-memory processes are absent in the displacement PDFs (C3).",
+      "confidence": 0.9
+    }
+  ],
+  "display_items": [
+    {
+      "display_item_id": "D1",
+      "paper_label": "Figure 1",
+      "display_type": "figure",
+      "result_presentation_role": "background",
+      "title_or_caption_summary": "Two-dimensional slice of the Q-criterion field showing vortex cores and strain regions.",
+      "panel_descriptions": [
+        {
+          "panel_label": "Full Figure",
+          "description": "Spatial map of Q-criterion at z=0 with yellow indicating vortex cores (Q > 0) and purple indicating strain (Q < 0)."
+        }
+      ],
+      "linked_claim_ids": [],
+      "supporting_evidence_span_ids": [],
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "display_item_id": "D2",
+      "paper_label": "Figure 2",
+      "display_type": "figure",
+      "result_presentation_role": "primary_result",
+      "title_or_caption_summary": "MSD and local scaling exponent alpha(t) showing transitions between transport regimes.",
+      "panel_descriptions": [
+        {
+          "panel_label": "Left",
+          "description": "MSD vs lag time for ensemble, trapped, and free cohorts."
+        },
+        {
+          "panel_label": "Right",
+          "description": "Local scaling exponent alpha(t) identifying ballistic, superdiffusive, and diffusive regimes."
+        }
+      ],
+      "linked_claim_ids": [
+        "C2"
+      ],
+      "supporting_evidence_span_ids": [
+        "E6"
+      ],
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "display_item_id": "D3",
+      "paper_label": "Figure 3",
+      "display_type": "figure",
+      "result_presentation_role": "primary_result",
+      "title_or_caption_summary": "Dynamic anisotropy ratio lambda(t) showing the transition to transverse-dominant transport.",
+      "panel_descriptions": [
+        {
+          "panel_label": "Full Figure",
+          "description": "Ratio of parallel to perpendicular MSD over time, showing a stabilized value below 1."
+        }
+      ],
+      "linked_claim_ids": [
+        "C1"
+      ],
+      "supporting_evidence_span_ids": [
+        "E1"
+      ],
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "display_item_id": "D4",
+      "paper_label": "Figure 4",
+      "display_type": "figure",
+      "result_presentation_role": "primary_result",
+      "title_or_caption_summary": "Lagrangian autocorrelation of the Q-criterion along tracer paths.",
+      "panel_descriptions": [
+        {
+          "panel_label": "Full Figure",
+          "description": "Decay of Q-criterion correlation used to define the trapping timescale tau_Q."
+        }
+      ],
+      "linked_claim_ids": [
+        "C2"
+      ],
+      "supporting_evidence_span_ids": [
+        "E2"
+      ],
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "display_item_id": "D5",
+      "paper_label": "Figure 5",
+      "display_type": "figure",
+      "result_presentation_role": "primary_result",
+      "title_or_caption_summary": "Displacement PDFs at various time lags compared to Gaussian distributions.",
+      "panel_descriptions": [
+        {
+          "panel_label": "Panels t=0.5, 1.0, 2.0, 5.0, 9.0",
+          "description": "Evolution of the PDF shape from mildly non-Gaussian to Gaussian to platykurtic."
+        }
+      ],
+      "linked_claim_ids": [
+        "C3"
+      ],
+      "supporting_evidence_span_ids": [
+        "E4"
+      ],
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "display_item_id": "D6",
+      "paper_label": "Figure 6",
+      "display_type": "figure",
+      "result_presentation_role": "secondary_result",
+      "title_or_caption_summary": "FTLE distributions for trapped vs. free tracer cohorts.",
+      "panel_descriptions": [
+        {
+          "panel_label": "Full Figure",
+          "description": "Histogram of FTLE for two cohorts showing significant overlap and near-zero means."
+        }
+      ],
+      "linked_claim_ids": [
+        "C4"
+      ],
+      "supporting_evidence_span_ids": [
+        "E5"
+      ],
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "display_item_id": "D7",
+      "paper_label": "Figure 7",
+      "display_type": "figure",
+      "result_presentation_role": "secondary_result",
+      "title_or_caption_summary": "FTLE correlations with vortex residence and FTLE at exit events.",
+      "panel_descriptions": [
+        {
+          "panel_label": "Left",
+          "description": "Scatter plot of FTLE vs vortex residence fraction."
+        },
+        {
+          "panel_label": "Right",
+          "description": "PDF of FTLE specifically at the moment a tracer exits a vortex."
+        }
+      ],
+      "linked_claim_ids": [
+        "C4"
+      ],
+      "supporting_evidence_span_ids": [
+        "E5"
+      ],
+      "confidence": 1.0,
+      "uncertainties": []
+    }
+  ],
+  "specifications": [
+    {
+      "specification_id": "S1",
+      "display_item_id": "D2",
+      "specification_label": "Ballistic alpha",
+      "specification_basis": "local slope of MSD",
+      "specification_type": "regime_identifier",
+      "specification_value_text": "alpha approx 2",
+      "extraction_mode": "visually_inferred",
+      "panel_label": "Right",
+      "analytical_variation": "early time (t < 0.3)",
+      "linked_claim_ids": [],
+      "supporting_evidence_span_ids": [
+        "E6"
+      ],
+      "reproduction_relevance": "high",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S2",
+      "display_item_id": "D2",
+      "specification_label": "Superdiffusive alpha crossover",
+      "specification_basis": "local slope of MSD",
+      "specification_type": "regime_identifier",
+      "specification_value_text": "1.7 to 1",
+      "extraction_mode": "visually_inferred",
+      "panel_label": "Right",
+      "analytical_variation": "intermediate time (0.3 < t < 1.5)",
+      "linked_claim_ids": [],
+      "supporting_evidence_span_ids": [
+        "E6"
+      ],
+      "reproduction_relevance": "medium",
+      "confidence": 0.9,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S3",
+      "display_item_id": "D2",
+      "specification_label": "Diffusive alpha",
+      "specification_basis": "local slope of MSD",
+      "specification_type": "regime_identifier",
+      "specification_value_text": "alpha approx 1",
+      "extraction_mode": "visually_inferred",
+      "panel_label": "Right",
+      "analytical_variation": "late time (1.5 < t < 4)",
+      "linked_claim_ids": [],
+      "supporting_evidence_span_ids": [
+        "E6"
+      ],
+      "reproduction_relevance": "high",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S4",
+      "display_item_id": "D2",
+      "specification_label": "MSD Saturation Limit",
+      "specification_basis": "theoretical periodic domain limit",
+      "specification_type": "constant",
+      "specification_value_text": "0.167 (L^2/6)",
+      "extraction_mode": "verbatim",
+      "panel_label": "Left",
+      "analytical_variation": "none",
+      "linked_claim_ids": [],
+      "supporting_evidence_span_ids": [
+        "E6"
+      ],
+      "reproduction_relevance": "high",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S5",
+      "display_item_id": "D2",
+      "specification_label": "Boundary crossing fraction",
+      "specification_basis": "tracer statistics",
+      "specification_type": "measured_quantity",
+      "specification_value_text": "82.9%",
+      "extraction_mode": "verbatim",
+      "panel_label": "Left",
+      "analytical_variation": "end of simulation",
+      "linked_claim_ids": [],
+      "supporting_evidence_span_ids": [
+        "E6"
+      ],
+      "reproduction_relevance": "medium",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S6",
+      "display_item_id": "D3",
+      "specification_label": "Peak Anisotropy Ratio",
+      "specification_basis": "lambda(t)",
+      "specification_type": "measured_quantity",
+      "specification_value_text": "2.96",
+      "extraction_mode": "verbatim",
+      "panel_label": "Full Figure",
+      "analytical_variation": "t < 0.5",
+      "linked_claim_ids": [
+        "C1"
+      ],
+      "supporting_evidence_span_ids": [
+        "E1"
+      ],
+      "reproduction_relevance": "medium",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S7",
+      "display_item_id": "D3",
+      "specification_label": "Stabilized Anisotropy Ratio",
+      "specification_basis": "lambda(t)",
+      "specification_type": "measured_quantity",
+      "specification_value_text": "0.52 +/- 0.045",
+      "extraction_mode": "verbatim",
+      "panel_label": "Full Figure",
+      "analytical_variation": "t > 0.5",
+      "linked_claim_ids": [
+        "C1"
+      ],
+      "supporting_evidence_span_ids": [
+        "E1"
+      ],
+      "reproduction_relevance": "high",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S8",
+      "display_item_id": "D4",
+      "specification_label": "Vortex Trapping Timescale tau_Q",
+      "specification_basis": "1/e decay of autocorrelation",
+      "specification_type": "measured_quantity",
+      "specification_value_text": "0.200",
+      "extraction_mode": "verbatim",
+      "panel_label": "Full Figure",
+      "analytical_variation": "none",
+      "linked_claim_ids": [
+        "C2"
+      ],
+      "supporting_evidence_span_ids": [
+        "E2"
+      ],
+      "reproduction_relevance": "high",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S9",
+      "display_item_id": "D4",
+      "specification_label": "Trapping vs turnover time ratio",
+      "specification_basis": "tau_Q / Te",
+      "specification_type": "measured_quantity",
+      "specification_value_text": "0.077",
+      "extraction_mode": "verbatim",
+      "panel_label": "Full Figure",
+      "analytical_variation": "large-eddy turnover Te approx 2.6",
+      "linked_claim_ids": [
+        "C2"
+      ],
+      "supporting_evidence_span_ids": [
+        "E3"
+      ],
+      "reproduction_relevance": "high",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S10",
+      "display_item_id": "D5",
+      "specification_label": "Intermediate Gaussianity p-value",
+      "specification_basis": "KS Test",
+      "specification_type": "statistical_test",
+      "specification_value_text": "0.53",
+      "extraction_mode": "verbatim",
+      "panel_label": "t=2.0",
+      "analytical_variation": "time lag t=2.0",
+      "linked_claim_ids": [
+        "C3"
+      ],
+      "supporting_evidence_span_ids": [
+        "E4"
+      ],
+      "reproduction_relevance": "high",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S11",
+      "display_item_id": "D5",
+      "specification_label": "Late-time Excess Kurtosis",
+      "specification_basis": "shape of PDF",
+      "specification_type": "measured_quantity",
+      "specification_value_text": "approx -1.2",
+      "extraction_mode": "verbatim",
+      "panel_label": "t=9.0",
+      "analytical_variation": "late time",
+      "linked_claim_ids": [
+        "C3"
+      ],
+      "supporting_evidence_span_ids": [
+        "E4"
+      ],
+      "reproduction_relevance": "medium",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S12",
+      "display_item_id": "D5",
+      "specification_label": "Hill Estimator Power-law Exponent",
+      "specification_basis": "Tail index alpha_L",
+      "specification_type": "measured_quantity",
+      "specification_value_text": "-7.1",
+      "extraction_mode": "verbatim",
+      "panel_label": "late time",
+      "analytical_variation": "none",
+      "linked_claim_ids": [
+        "C3"
+      ],
+      "supporting_evidence_span_ids": [
+        "E4"
+      ],
+      "reproduction_relevance": "medium",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S13",
+      "display_item_id": "D6",
+      "specification_label": "Trapped cohort Mean FTLE",
+      "specification_basis": "ensemble mean",
+      "specification_type": "measured_quantity",
+      "specification_value_text": "-0.008 +/- 0.013",
+      "extraction_mode": "verbatim",
+      "panel_label": "Full Figure",
+      "analytical_variation": "Trapped cohort",
+      "linked_claim_ids": [
+        "C4"
+      ],
+      "supporting_evidence_span_ids": [
+        "E5"
+      ],
+      "reproduction_relevance": "medium",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S14",
+      "display_item_id": "D7",
+      "specification_label": "FTLE vs Residence Correlation",
+      "specification_basis": "Pearson r",
+      "specification_type": "measured_quantity",
+      "specification_value_text": "0.002",
+      "extraction_mode": "verbatim",
+      "panel_label": "Left",
+      "analytical_variation": "none",
+      "linked_claim_ids": [
+        "C4"
+      ],
+      "supporting_evidence_span_ids": [
+        "E5"
+      ],
+      "reproduction_relevance": "medium",
+      "confidence": 1.0,
+      "uncertainties": []
+    },
+    {
+      "specification_id": "S15",
+      "display_item_id": "D7",
+      "specification_label": "Mean FTLE at Vortex Exit",
+      "specification_basis": "ensemble mean",
+      "specification_type": "measured_quantity",
+      "specification_value_text": "-0.010",
+      "extraction_mode": "verbatim",
+      "panel_label": "Right",
+      "analytical_variation": "Exit events",
+      "linked_claim_ids": [
+        "C4"
+      ],
+      "supporting_evidence_span_ids": [
+        "E5"
+      ],
+      "reproduction_relevance": "medium",
+      "confidence": 1.0,
+      "uncertainties": []
+    }
+  ],
+  "evidence_spans": [
+    {
+      "span_id": "E1",
+      "section_type": "results",
+      "source_location": "3.2 Transverse-dominant anisotropic dispersion",
+      "quoted_text": "For t > 0.5, the anisotropy stabilizes at a mean value of lambda approx 0.52 +/- 0.045. This result, lambda < 1, reveals a persistent and significant anisotropy where dispersion perpendicular to the local large-scale velocity systematically exceeds parallel dispersion."
+    },
+    {
+      "span_id": "E2",
+      "section_type": "results",
+      "source_location": "3.3 Transient nature of vortex trapping",
+      "quoted_text": "The function exhibits a rapid decay, crossing the 1/e threshold at a characteristic timescale of tau_Q approx 0.200."
+    },
+    {
+      "span_id": "E3",
+      "section_type": "results",
+      "source_location": "3.3 Transient nature of vortex trapping",
+      "quoted_text": "tracers remain trapped within a coherent vortex for only about 7-8% of a large-eddy turnover time. These trapping events are highly transient... insufficient to generate the long-term memory required for sustained superdiffusion."
+    },
+    {
+      "span_id": "E4",
+      "section_type": "results",
+      "source_location": "3.4 Statistical properties of tracer displacements",
+      "quoted_text": "By an intermediate time of t = 2.0, the displacement PDF is statistically indistinguishable from a Gaussian distribution... at late times (t = 5.0, 9.0), the PDFs... become platykurtic (light-tailed and flat-topped), with an excess kurtosis approaching -1.2."
+    },
+    {
+      "span_id": "E5",
+      "section_type": "results",
+      "source_location": "3.5 Role of chaotic dynamics",
+      "quoted_text": "the FTLE distributions for the Trapped and Free tracer cohorts are nearly identical... shows no relationship between a tracer's long-time FTLE and its residence fraction in vortices (Pearson r = 0.002)."
+    },
+    {
+      "span_id": "E6",
+      "section_type": "results",
+      "source_location": "3.1 Temporal evolution of tracer dispersion",
+      "quoted_text": "At early times (t < 0.3), transport is ballistic (alpha approx 2)... followed by a superdiffusive crossover... enters a diffusive regime (alpha approx 1) for 1.5 < t < 4... By the end of the simulation, 82.9% of tracers have crossed a periodic boundary, confirming that late-time statistics are dominated by these finite-domain effects."
+    }
+  ],
+  "global_uncertainties": [
+    "Impact of the sharp spectral filter cut-off (n=1-3) on the definition of 'large-scale velocity' and subsequent anisotropy results.",
+    "Potential influence of the trilinear interpolation scheme on Lagrangian statistics in high-vorticity regions compared to higher-order schemes.",
+    "Sensitivity of the tau_Q value and cohort classification to the specific threshold of the Q-criterion."
+  ]
+}

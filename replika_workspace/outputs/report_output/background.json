@@ -1,0 +1,155 @@
+{
+  "introduction": {
+    "paragraphs": [
+      "This study investigates the fundamental relationship between large-scale energy injection, coherent structures, and particle transport in three-dimensional solenoidal turbulence. The research is conducted using a direct numerical simulation of subsonic, isothermal turbulence where energy is injected specifically through rotational modes. The primary objective is to characterize the temporal evolution of particle dispersion and test the hypothesis that coherent structures induce anomalous transport by trapping particles.",
+      "The authors utilize thousands of passive Lagrangian tracers integrated within the simulated velocity field to identify distinct transport regimes, ranging from initial ballistic motion to late-time diffusion. A central focus of the work is the demonstration of a persistent anisotropy in dispersion relative to the large-scale flow and an evaluation of the residence times of tracers within vortex cores identified by the Q-criterion. The findings aim to show how the forward energy cascade and vortex instabilities suppress long-term memory, ensuring a return to classical diffusion despite the presence of coherent structures."
+    ]
+  },
+  "scope_of_reproducibility": {
+    "intro_paragraphs": [
+      "The reproducibility effort focuses on the Lagrangian transport statistics and the kinematic signatures of solenoidal forcing. The scope includes reconstructing the tracer trajectories to validate the reported anisotropy ratios, trapping timescales, and the evolution of displacement probability distributions.",
+      "Key metrics for success include the stabilization of the dynamic anisotropy ratio below unity and the confirmation that vortex residence times are a small fraction of the large-eddy turnover time."
+    ],
+    "scoped_claims": [
+      {
+        "claim_id": "C1",
+        "claim_label": "Anisotropic Dispersion",
+        "claim_summary": "Dispersion in solenoidal turbulence exhibits a persistent transverse-dominant anisotropy where transport perpendicular to the local large-scale velocity exceeds parallel transport.",
+        "experiment_ids": [
+          "EXP1",
+          "EXP2"
+        ],
+        "experiment_labels": [
+          "Tracer Trajectory Generation",
+          "Anisotropic Dispersion Analysis"
+        ],
+        "expected_evidence": "The dynamic anisotropy ratio lambda should stabilize at approximately 0.52 for time lags greater than 0.5."
+      },
+      {
+        "claim_id": "C2",
+        "claim_label": "Transient Vortex Trapping",
+        "claim_summary": "Vortex trapping events are brief, lasting only about 7 percent of a large-eddy turnover time, which is insufficient to generate long-term memory.",
+        "experiment_ids": [
+          "EXP1",
+          "EXP3"
+        ],
+        "experiment_labels": [
+          "Tracer Trajectory Generation",
+          "Vortex Residence Time Calculation"
+        ],
+        "expected_evidence": "The trapping timescale tau_Q should be approximately 0.200, representing roughly 7 to 8 percent of the large-eddy turnover time."
+      },
+      {
+        "claim_id": "C3",
+        "claim_label": "Displacement Distributions",
+        "claim_summary": "Displacement probability distributions are nearly Gaussian at intermediate times and become platykurtic at late times due to finite-domain effects, without exhibiting heavy tails.",
+        "experiment_ids": [
+          "EXP1",
+          "EXP4"
+        ],
+        "experiment_labels": [
+          "Tracer Trajectory Generation",
+          "Displacement PDF Evolution"
+        ],
+        "expected_evidence": "The Kolmogorov-Smirnov test at t = 2.0 should yield a p-value of approximately 0.53, and excess kurtosis at late times should approach -1.2."
+      },
+      {
+        "claim_id": "C4",
+        "claim_label": "FTLE Ineffectiveness",
+        "claim_summary": "Long-time Finite-Time Lyapunov Exponents are ineffective at distinguishing between the dynamics of tracers trapped in vortices and those moving freely.",
+        "experiment_ids": [
+          "EXP1",
+          "EXP5"
+        ],
+        "experiment_labels": [
+          "Tracer Trajectory Generation",
+          "FTLE and Chaos Analysis"
+        ],
+        "expected_evidence": "The Pearson correlation between long-time FTLE and vortex residence fraction should be near zero, approximately 0.002."
+      }
+    ]
+  },
+  "methodology": {
+    "datasets_intro_paragraphs": [
+      "The analysis relies on a sequence of 3D velocity field snapshots from a direct numerical simulation and a derived dataset of Lagrangian tracer trajectories."
+    ],
+    "datasets": [
+      {
+        "dataset_id": "DS1",
+        "dataset_name": "3D Solenoidal Turbulence Velocity Snapshots",
+        "role": "primary_benchmark",
+        "availability": "available_local",
+        "split_setup_notes": "The simulation uses a periodic cubic domain of side length L = 1. While the paper uses 200 snapshots, the provided inventory contains 100 snapshots spaced by a numerical step of 10.",
+        "preprocessing_notes": "Requires computation of the vorticity field, the Q-criterion for vortex identification, and a sharp spectral filter (modes 1 to 3) to isolate the large-scale velocity field.",
+        "narrower_scope_note": "The reproduction uses a reduced temporal resolution of 100 snapshots compared to the 200 snapshots in the original study."
+      },
+      {
+        "dataset_id": "DS2",
+        "dataset_name": "Lagrangian Tracer Trajectory Dataset",
+        "role": "auxiliary_dataset",
+        "availability": "paper_described_but_not_available",
+        "split_setup_notes": "This dataset is reconstructed by integrating 8,000 passive tracers through the velocity fields of DS1.",
+        "preprocessing_notes": "Implementation of a fourth-order Runge-Kutta scheme with trilinear interpolation and periodic boundary modulo operations is required.",
+        "narrower_scope_note": "The accuracy of the reconstructed trajectories is subject to the lower temporal resolution of the source velocity fields."
+      }
+    ],
+    "experiments_intro_paragraphs": [
+      "The experiments are designed to first generate the tracer trajectories and then perform statistical analysis to test the claims regarding anisotropy, trapping, and distribution shapes."
+    ],
+    "experiments": [
+      {
+        "experiment_id": "EXP1",
+        "experiment_name": "Tracer Trajectory Generation",
+        "claims_tested": [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ],
+        "intended_procedure": "Initialize 8,000 tracers at random positions and solve the equation of motion using a fourth-order Runge-Kutta scheme with 10 integration sub-steps between velocity snapshots. Apply periodic boundary conditions at every sub-step.",
+        "required_outputs": "A trajectory dataset containing coordinates and local velocities for 8,000 tracers over the simulation duration.",
+        "expected_result": "A consistent set of paths where approximately 83 percent of tracers cross a periodic boundary by the end of the simulation."
+      },
+      {
+        "experiment_id": "EXP2",
+        "experiment_name": "Anisotropic Dispersion Analysis",
+        "claims_tested": [
+          "C1"
+        ],
+        "intended_procedure": "Decompose Mean-Square Displacement into components parallel and perpendicular to the local large-scale velocity field derived via spectral filtering. Calculate the ratio lambda over various time lags.",
+        "required_outputs": "Temporal evolution plots of parallel and perpendicular MSD and the anisotropy ratio lambda.",
+        "expected_result": "The ratio lambda should peak at approximately 2.96 during the ballistic phase and stabilize near 0.52 in the diffusive regime."
+      },
+      {
+        "experiment_id": "EXP3",
+        "experiment_name": "Vortex Residence Time Calculation",
+        "claims_tested": [
+          "C2"
+        ],
+        "intended_procedure": "Identify regions where the Q-criterion is positive and track the Q-value along tracer paths. Compute the Lagrangian autocorrelation function of the Q-signal.",
+        "required_outputs": "The autocorrelation decay curve and the resulting timescale tau_Q.",
+        "expected_result": "The autocorrelation should decay to 1/e of its initial value at tau_Q approximately 0.200."
+      },
+      {
+        "experiment_id": "EXP4",
+        "experiment_name": "Displacement PDF Evolution",
+        "claims_tested": [
+          "C3"
+        ],
+        "intended_procedure": "Extract single-component displacements at specific time lags and compute their probability density functions. Perform Kolmogorov-Smirnov tests and calculate excess kurtosis.",
+        "required_outputs": "Normalized displacement histograms and statistical test results.",
+        "expected_result": "Distributions should be Gaussian at t = 2.0 and exhibit negative excess kurtosis (platykurtic) at t = 9.0 due to domain limits."
+      },
+      {
+        "experiment_id": "EXP5",
+        "experiment_name": "FTLE and Chaos Analysis",
+        "claims_tested": [
+          "C4"
+        ],
+        "intended_procedure": "Calculate long-time Finite-Time Lyapunov Exponents for tracers and compare the distributions between trapped and free cohorts. Measure the correlation between FTLE and vortex residence.",
+        "required_outputs": "FTLE distribution histograms for cohorts and correlation coefficients.",
+        "expected_result": "The distributions for trapped and free cohorts should overlap significantly with a near-zero Pearson correlation coefficient."
+      }
+    ]
+  }
+}

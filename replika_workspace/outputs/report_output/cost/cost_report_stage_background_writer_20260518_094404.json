@@ -1,0 +1,21 @@
+[
+  {
+    "Agent": "background writer",
+    "Cost ($)": 0.0186285,
+    "Prompt Tokens": 27267,
+    "Completion Tokens": 1665,
+    "Total Tokens": 28932,
+    "Cached Prompt Tokens": 0,
+    "Model": "gemini-3-flash-preview",
+    "Provider": "google"
+  },
+  {
+    "Agent": "Total",
+    "Cost ($)": 0.0186285,
+    "Prompt Tokens": 27267,
+    "Completion Tokens": 1665,
+    "Total Tokens": 28932,
+    "Cached Prompt Tokens": 0,
+    "Model": ""
+  }
+]
